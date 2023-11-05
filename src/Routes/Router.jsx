@@ -7,6 +7,7 @@ import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods"
 import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import Login from "../Pages/Login/Login"
 import Register from "../Pages/Register/Register";
+import AddFood from "../Pages/AddFood/AddFood";
 const router = createBrowserRouter ([
     {
         path:'/',
@@ -34,6 +35,10 @@ const router = createBrowserRouter ([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/addFoods',
+                element: <AddFood></AddFood>
             }
             
 

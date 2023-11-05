@@ -1,8 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import AuthHook from "../CustomHooks/AuthHook";
 
 
 const Navbar = () => {
 
+  const {user,signOutUser} = AuthHook()
+  const handleSignout = () => {
+    signOutUser()
+    .then()
+    .catch(error=>{
+      console.log(error.message)
+    })
+  }
   const navlinks =
     <>
       <li className="text-lg font-bold mr-2"><NavLink to='/' className={({ isActive, isPending }) =>
@@ -38,6 +47,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+       
         <button className="btn btn-ghost btn-circle">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
         </button>
@@ -47,10 +57,10 @@ const Navbar = () => {
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button>
-        <div className="dropdown dropdown-end">
+        {user?  <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="/public/user.svg.png" />
+              <img src={user?.photoURL} />
             </div>
           </label>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -60,8 +70,19 @@ const Navbar = () => {
               isPending ? "pending" : isActive ? "active" : ""}>Manage My Foods</NavLink></li>
             <li className="text-lg font-bold mr-2"><NavLink to='/foodsRequest' className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "active" : ""}>My Food Request</NavLink></li>
+               <button className="btn" onClick={handleSignout}>Sign Out</button>
           </ul>
-        </div>
+         
+        </div> :
+         <div className="flex items-center">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <img src="/public/user.svg.png" />
+            </div>
+          </label>
+         <Link to="/login"> <button >Login</button></Link>
+          </div> }
+       
       </div>
     </div>
   );

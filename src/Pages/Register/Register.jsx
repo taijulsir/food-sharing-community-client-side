@@ -7,15 +7,22 @@ import Swal from "sweetalert2";
 const Register = () => {
     const {createUser, profileUpdate,signOutUser,googleLogin, githubLogin} = AuthHook()
     const [showPassword, setShowPassword] = useState(false)
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [name, setName] = useState("")
-    const [photoUrl, setPhotoUrl] = useState("")
+    // const [email, setEmail] = useState("")
+    // const [password, setPassword] = useState("")
+    // const [name, setName] = useState("")
+    // const [photoUrl, setPhotoUrl] = useState("")
     const navigate = useNavigate()
 
     // email login
     const handleEmailLogin = (e) => {
+  
+
         e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const name = e.target.name.value;
+        const photoUrl = e.target.photoUrl.value;
+        console.log(email,password,name,photoUrl)
         // password validation
         
         if(!/^(?=.*[A-Z])/.test(password)){
@@ -81,18 +88,18 @@ const Register = () => {
 
                                     <form onSubmit={handleEmailLogin}>
                                         <input
-                                            onChange={(e) => setName(e.target.value)}
+                                            // onChange={(e) => setName(e.target.value)}
                                             className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                             name="name" type="text" placeholder="Name" />
                                         <input
-                                            onChange={(e) => setEmail(e.target.value)}
+                                            // onChange={(e) => setEmail(e.target.value)}
                                             className="w-full mt-3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                             name="email" type="email" placeholder="Email" />
                                         <div>
 
                                             <div className="relative">
                                                 <input
-                                                    onChange={(e) => setPassword(e.target.value)}
+                                                    // onChange={(e) => setPassword(e.target.value)}
                                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                                                     name="password" type={showPassword ? "text" : "password"} placeholder="Password" />
                                             </div>
@@ -106,7 +113,7 @@ const Register = () => {
 
                                         </div>
                                         <input
-                                            onChange={(e) => setPhotoUrl(e.target.value)}
+                                            // onChange={(e) => setPhotoUrl(e.target.value)}
                                             className="w-full mt-3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                             name="photoUrl" type="url" placeholder="Photo URl" />
                                         <button
