@@ -1,9 +1,22 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
-const handlePopupLogin = (media)=>{
-
-}
 const Login = () => {
+
+    const [showPassword,setShowPassword] = useState(false)
+    const [email,setEmail] = useState(null)
+    const [password,setPassword] =useState(null)
+    console.log(email,password)
+    
+    const handleEmailLogin = (e) => {
+        e.preventDefault()
+    }
+    
+    const handlePopupLogin = (media)=>{
+    
+    }
+
     return (
         <div>
             <section className=" font-poppins">
@@ -33,17 +46,32 @@ const Login = () => {
 
 
                                         {/* form validation */}
-                                        <form className="">
+                                        <form onSubmit={handleEmailLogin}>
+
                                             <div className="mb-4">
                                                 <input type="text"
-                                                    className="w-full py-4 rounded-lg px-7 dark:text-gray-300 dark:bg-gray-800"
-                                                    placeholder="Your email" required />
+                                                onChange={(e)=>setEmail(e.target.value)}
+                                                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                                name="email"    placeholder="Your email" required />
                                             </div>
-                                            <div className="relative flex items-center mb-4">
-                                                <input type="password"
-                                                    className="w-full py-4 rounded-lg px-7 dark:text-gray-300 dark:bg-gray-800"
-                                                    placeholder=" password" required />
+
+
+                                            <div>
+                                            <div className="relative">
+                                                <input
+                                                    onChange={(e) => setPassword(e.target.value)}
+                                                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                                    name="password" type={showPassword ? "text" : "password"} placeholder="Password" />
                                             </div>
+                                            <div className="absolute -mt-10 ml-[380px] cursor-pointer">
+                                                <button onClick={() => setShowPassword(!showPassword)}>
+                                                    {
+                                                        showPassword ? <FaEye className="text-2xl text-[#403F3F]"></FaEye> : <FaEyeSlash className="text-2xl text-[#403F3F]"></FaEyeSlash>
+                                                    }
+                                                </button>
+                                            </div>
+
+                                        </div>
 
                                             <div className="mb-4 text-right ">
                                                 <a href="#"
