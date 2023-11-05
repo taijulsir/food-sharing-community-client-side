@@ -1,19 +1,69 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AuthHook from "../../CustomHooks/AuthHook";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 const Register = () => {
+    const {createUser, profileUpdate,signOutUser,googleLogin, githubLogin} = AuthHook()
     const [showPassword, setShowPassword] = useState(false)
-    const [email, setEmail] = useState(null)
-    const [password, setPassword] = useState(null)
-    const [name, setName] = useState(null)
-    const [photoUrl, setPhotoUrl] = useState(null)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [name, setName] = useState("")
+    const [photoUrl, setPhotoUrl] = useState("")
+    const navigate = useNavigate()
 
-    console.log(email,password,name,photoUrl)
-
+    // email login
     const handleEmailLogin = (e) => {
         e.preventDefault();
-
+        // password validation
+        
+        if(!/^(?=.*[A-Z])/.test(password)){
+          toast.error('Password have at least one uppercase letter')
+          return;
+        }
+        if(!/(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-])/.test(password)){
+            toast.error('Password must be at least one special character')
+        }
+        createUser(email,password)
+        .then(results =>{
+            console.log(results.user)
+            profileUpdate(name,photoUrl)
+            .then(results => {
+                console.log(results)
+            })
+            .catch(errors => {
+                console.log(errors)
+            })
+            toast.success("User created succesfully,Now Login")
+            signOutUser()
+            navigate('/login')
+        })
+        .catch(error=>{
+           const errorMessage = error.message
+           toast.error(errorMessage)
+        })
     }
+
+    const handlePopupLogin = (media) => {
+        media()
+        .then(result => {
+            const users = result.user
+           console.log(users)
+           Swal.fire({
+               icon: 'success',
+               title: 'Success!',
+               text: 'Registration Succesful,Now login.'
+            });
+            signOutUser()
+            navigate('/login')
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            toast.error(errorMessage);
+        })
+    }
+
     return (
         <div>
 
@@ -28,6 +78,7 @@ const Register = () => {
                             <div className="w-full flex-1 mt-8">
                                 {/* email and password */}
                                 <div className="mx-auto max-w-xs">
+
                                     <form onSubmit={handleEmailLogin}>
                                         <input
                                             onChange={(e) => setName(e.target.value)}
@@ -59,6 +110,7 @@ const Register = () => {
                                             className="w-full mt-3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                             name="photoUrl" type="url" placeholder="Photo URl" />
                                         <button
+                                        type="submit"
                                             className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                             <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" strokeWidth="2"
                                                 strokeLinecap="round" strokeLinejoin="round">
@@ -90,9 +142,10 @@ const Register = () => {
 
 
 
-                                {/* social media login */}
+                                {/* social media Register */}
                                 <div className="flex flex-col items-center">
                                     <button
+                                    onClick={()=>handlePopupLogin(googleLogin)}
                                         className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                         <div className="bg-white p-2 rounded-full">
                                             <svg className="w-4" viewBox="0 0 533.5 544.3">
@@ -116,6 +169,7 @@ const Register = () => {
                                     </button>
 
                                     <button
+                                    onClick={()=>handlePopupLogin(githubLogin)}
                                         className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
                                         <div className="bg-white p-1 rounded-full">
                                             <svg className="w-6" viewBox="0 0 32 32">

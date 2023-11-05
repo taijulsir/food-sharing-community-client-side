@@ -1,10 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-
-
 const FoodsCard = ({ food }) => {
-
-    const { _id, foodId, foodName, foodImage, donatorName, donatorImage, donatorEmail, foodQuantity, pickupLocation, expireDate, expireTime, additionalNotes, category, donatorDesignation } = food;
-
+    const { _id, foodName, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorDesignation } = food;
     return (
         <div>
             <div>
