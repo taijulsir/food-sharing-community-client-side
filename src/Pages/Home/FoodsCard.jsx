@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const FoodsCard = ({ food }) => {
@@ -81,11 +82,13 @@ const FoodsCard = ({ food }) => {
                     </div>
 
                     {/* Details button */}
-                    <div className="flex items-center justify-between mt-3 ">
-                        <button
-                            className="w-full py-2 text-xs text-gray-100 bg-blue-700 rounded hover:bg-blue-600 hover:text-gray-100">
-                            View Details</button>
-                    </div>
+                    <div>
+                            <Link className="flex items-center justify-between mt-3" to={`/foodDetails/${_id}`}>
+                                <button
+                                    className="w-full py-2 text-xs text-gray-100 bg-blue-700 rounded hover:bg-blue-600 hover:text-gray-100">
+                                    View Details</button>
+                            </Link>
+                        </div>
                 </div>
             </div>
 
