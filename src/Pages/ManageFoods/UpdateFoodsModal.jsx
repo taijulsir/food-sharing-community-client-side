@@ -7,9 +7,39 @@ import toast, { Toaster } from "react-hot-toast";
 
 const UpdateFoodsModal = ({ food }) => {
     const { user } = AuthHook()
-    const { _id, foodName, foodId, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorDesignation, donatorEmail,status } = food;
+    const { _id, foodName, foodId, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorEmail,status } = food;
+
+    // update form
+    const designation = "Food Donator"
     const handleUpdate = (e) => {
         e.preventDefault()
+
+        const form = e.target;
+        const foodName = form.foodName.value;
+        const foodImage = form.foodImage.value;
+        const foodId = form.foodId.value;
+        const foodQuantity = form.foodQuantity.value;
+        const donatorName = user?.displayName;
+        const donatorEmail = user?.email;
+        const donatorImage = user?.photoURL;
+        const donatorDesignation = designation
+        const pickupLocation = form.pickupLocation.value;
+        const expireDate = form.expireDate.value;
+        const category = form.category.value;
+        const additionalNotes = form.additionalNotes.value;
+        const status = form.status.value;
+        const foods = {foodName,foodImage,foodId,foodQuantity,donatorName,donatorEmail,donatorImage,pickupLocation,expireDate,category, additionalNotes,status,donatorDesignation}
+        console.log(foods)
+        axios.put(`http://localhost:5000/updateFoods/${_id}`,foods)
+        .then(res=>{
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                toast.success('succesfully added')
+            }
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
     return (
         <div>
@@ -129,7 +159,7 @@ const UpdateFoodsModal = ({ food }) => {
 
                             </div>
                             <button type="submit"
-                                className="mt-8 px-6 py-2 w-full text-sm font-semibold bg-[#007bff] text-white hover:bg-[#006bff]">Submit</button>
+                                className="mt-8 px-6 py-2 w-full text-sm font-semibold bg-[#007bff] text-white hover:bg-[#006bff]">Update</button>
                         </form>
 
                     </div>

@@ -66,6 +66,7 @@ const FoodsTable = ({ columns, data,onDelete }) => {
                                     >
                                         Delete
                                     </button>
+                                    {/* create an modal */}
                                     <button onClick={handleUpdate(row)}>
                                         
                                         <UpdateFoodsModal food={row.original}></UpdateFoodsModal>
