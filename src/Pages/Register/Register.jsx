@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import AuthHook from "../../CustomHooks/AuthHook";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 const Register = () => {
     const {createUser, profileUpdate,signOutUser,googleLogin, githubLogin} = AuthHook()
@@ -203,6 +203,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

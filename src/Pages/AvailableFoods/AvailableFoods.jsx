@@ -147,6 +147,7 @@ const AvailableFoods = () => {
 
 
                         <div className="w-full px-3 lg:w-3/4">
+                            {/* icon */}
                             <div className="px-3 mb-4">
                                 <div className="items-center justify-between hidden px-3 py-2 bg-gray-100 md:flex dark:bg-gray-900 ">
                                     <div className="flex">
@@ -166,6 +167,7 @@ const AvailableFoods = () => {
                                             </svg>
                                         </a>
                                     </div>
+                                    {/* search icon */}
                                     <form onSubmit={handleSearch}>
                                         <div className="flex bg-gray-100 shadow-md p-4 w-80 lg:w-[350px] items-center  space-x-4 rounded-lg">
 
@@ -178,6 +180,8 @@ const AvailableFoods = () => {
                                            </div>
                                         </div>
                                     </form>
+
+                                    {/* sorting */}
                                     <div className="flex items-center justify-between">
                                         <div className="pr-3 border-r border-gray-300">
                                             <select
