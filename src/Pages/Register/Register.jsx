@@ -31,6 +31,7 @@ const Register = () => {
         }
         if(!/(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-])/.test(password)){
             toast.error('Password must be at least one special character')
+            return;
         }
         createUser(email,password)
         .then(results =>{

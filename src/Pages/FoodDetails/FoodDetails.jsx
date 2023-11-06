@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
-import { FaHandHoldingHeart } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import FoodModal from "./FoodModal";
 
 const FoodDetails = () => {
     const food = useLoaderData()
@@ -126,6 +126,7 @@ const FoodDetails = () => {
                                         ">🍲Quantity: {foodQuantity} person</h3>
                                     </div>
                                 </div>
+
                                 {/* Donator inspiration text */}
                                 <div className="mt-6 mb-6 text-gray-700 font-poppins dark:text-gray-400">
                                     <blockquote
@@ -173,9 +174,10 @@ const FoodDetails = () => {
                                 <img src="https://i.ibb.co/Xt76yb3/Donate-food-1.jpg" alt=""
                                     className="object-cover w-full lg:h-80 h-96" />
                             </div>
+
+                            {/* modal function */}
                             <div>
-                                <button type="submit"
-                                    className="flex items-center  w-full px-4 py-3 mt-4 font-medium text-gray-100 bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600 hover:bg-blue-600 rounded-lg  "><FaHandHoldingHeart className="text-3xl mr-2 text-red-700 "></FaHandHoldingHeart> Request Now</button>
+                                <FoodModal food={food}></FoodModal>
                             </div>
 
                         </div>
