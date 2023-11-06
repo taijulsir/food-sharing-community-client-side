@@ -3,7 +3,7 @@
 import { useTable } from "react-table";
 
 
-const FoodsTable = ({ columns, data }) => {
+const FoodsTable = ({ columns, data,onDelete }) => {
     const {
         getTableProps,
         getTableBodyProps,
@@ -17,7 +17,7 @@ const FoodsTable = ({ columns, data }) => {
 
     const handleDelete = (row) => {
         // Implement the delete logic here for the selected row
-        console.log('Delete:', row.original);
+        onDelete(row.original._id);
     };
 
     const handleUpdate = (row) => {
