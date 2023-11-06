@@ -17,7 +17,6 @@ const Featured = () => {
     useEffect(()=>{
         const sortedFoods = foods.sort((a, b) => b.foodQuantity - a.foodQuantity)
         setSortFoods(sortedFoods)
-        console.log(sortFoods)
     },[foods,sortFoods])
 
     return (
