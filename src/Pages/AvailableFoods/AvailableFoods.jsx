@@ -1,14 +1,16 @@
 import { useLoaderData } from "react-router-dom";
 import AvailableBanners from "./AvailableBanners";
 import AvailableCards from "./AvailableCards";
-import { useState } from "react";
+import {  useState } from "react";
 
 
 const AvailableFoods = () => {
     const availableFoods = useLoaderData()
+    const [foods,setfoods] = useState(availableFoods)
     const [searchText,setSearchText] = useState('')
-    console.log(searchText)
-     const filterCardData = availableFoods?.filter((item) => {
+    const [sortingOption,setSortingOption] = useState('')
+    // filter data
+     const filterCardData = foods?.filter((item) => {
         if(item && item.category){
             return item.category.toLowerCase().includes(searchText.toLowerCase());
         }
@@ -18,6 +20,26 @@ const AvailableFoods = () => {
         e.preventDefault()
         const food = e.target.food.value;
         setSearchText(food)
+    }
+
+    const handleSorting = (selectedoption) =>{
+        setSortingOption(selectedoption)
+        if (selectedoption === 'quantity') {
+            const sortedFoods = [...foods];
+            sortedFoods.sort((a, b) => b.foodQuantity - a.foodQuantity);
+            setfoods(sortedFoods);
+          }
+       else if(selectedoption === 'nearExpire'){
+            const sortedFoods = [...foods]
+            sortedFoods.sort((a,b)=>new Date (a.expireDate)- new Date (b.expireDate))
+            setfoods(sortedFoods)    
+        }
+        else if (selectedoption === 'longExpire') {
+            const sortedFoods = [...foods];
+            sortedFoods.sort((a, b) => new Date(b.expireDate) - new Date(a.expireDate));
+            setfoods(sortedFoods);
+        }
+        
     }
     return (
         <div>
@@ -158,10 +180,13 @@ const AvailableFoods = () => {
                                     </form>
                                     <div className="flex items-center justify-between">
                                         <div className="pr-3 border-r border-gray-300">
-                                            <select name="" id="" className="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
-                                                <option value="">Sort by latest</option>
-                                                <option value="">Sort by Popularity</option>
-                                                <option value="">Sort by Price</option>
+                                            <select
+                                            value={sortingOption}
+                                            onChange={(e)=>handleSorting(e.target.value)}
+                                            className="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
+                                             <option value="quantity">Sort by Quantity</option>
+                                            <option value="nearExpire">Sort by Near Expire</option>
+                                            <option value="longExpire">Sort by Long Expire</option>
                                             </select>
                                         </div>
                                         <div className="flex items-center pl-3">
