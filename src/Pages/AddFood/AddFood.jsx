@@ -6,7 +6,7 @@ import AuthHook from "../../CustomHooks/AuthHook";
 const AddFood = () => {
 
     const {user} = AuthHook()
-    //  const { _id, foodName, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorDesignation,foodId } = food;
+    //  const { _id, foodName, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorDesignation,foodId,donatorEmail,status } = food;
 
     const designation = "Food Donator"
     const handleAddFoods = (e) => {

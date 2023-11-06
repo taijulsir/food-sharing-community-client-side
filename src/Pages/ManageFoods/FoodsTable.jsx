@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useTable } from "react-table";
+import UpdateFoodsModal from "./UpdateFoodsModal";
 
 
 const FoodsTable = ({ columns, data,onDelete }) => {
@@ -65,11 +66,9 @@ const FoodsTable = ({ columns, data,onDelete }) => {
                                     >
                                         Delete
                                     </button>
-                                    <button
-                                        onClick={() => handleUpdate(row)}
-                                        className=" btn px-2 py-1 bg-green-500 text-white mr-2"
-                                    >
-                                        Update
+                                    <button onClick={handleUpdate(row)}>
+                                        
+                                        <UpdateFoodsModal food={row.original}></UpdateFoodsModal>
                                     </button>
                                     <button
                                         onClick={() => handleManage(row)}
