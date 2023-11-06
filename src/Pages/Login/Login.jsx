@@ -96,7 +96,7 @@ const Login = () => {
                                                 <input
                                                     onChange={(e) => setPassword(e.target.value)}
                                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                                    name="password" type={showPassword ? "text" : "password"} placeholder="Password" />
+                                                    name="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
                                             </div>
                                             <div className="absolute -mt-10 ml-[380px] cursor-pointer">
                                                 <button onClick={() => setShowPassword(!showPassword)}>

@@ -1,3 +1,5 @@
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const AddFood = () => {
@@ -9,7 +11,7 @@ const AddFood = () => {
 
         const form = e.target;
         const foodName = form.foodName.value;
-        const foodImage = form.foodName.value;
+        const foodImage = form.foodImage.value;
         const foodId = form.foodId.value;
         const foodQuantity = form.foodQuantity.value;
         const donatorName = form.donatorName.value;
@@ -19,8 +21,20 @@ const AddFood = () => {
         const expireDate = form.expireDate.value;
         const category = form.category.value;
         const additionalNotes = form.additionalNotes.value;
-        const foods = {foodName,foodImage,foodId,foodQuantity,donatorName,donatorEmail,donatorImage,pickupLocation,expireDate,category, additionalNotes}
+        const status = form.status.value;
+        const foods = {foodName,foodImage,foodId,foodQuantity,donatorName,donatorEmail,donatorImage,pickupLocation,expireDate,category, additionalNotes,status}
         console.log(foods)
+        axios.post('http://localhost:5000/addFoods',foods)
+        .then(res=>{
+            console.log(res.data)
+            if(res.data.insertedId){
+                toast.success('succesfully added')
+                form.reset()
+            }
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
     return (
         <div className="container mx-auto my-10">
@@ -115,8 +129,14 @@ const AddFood = () => {
                       
                     </div>
                     {/* Additional Notes */}
-                    <div className="relative flex items-center sm:col-span-2">
+                    <div className="relative flex items-center">
                         <input type="text" placeholder="Additional Notes" name="additionalNotes" required
+                            className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
+                      
+                    </div>
+                    {/* status */}
+                    <div className="relative flex items-center">
+                        <input type="text" placeholder="Status" name="status" required
                             className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
                       
                     </div>
@@ -125,6 +145,7 @@ const AddFood = () => {
                 <button type="submit"
                     className="mt-8 px-6 py-2 w-full text-sm font-semibold bg-[#007bff] text-white hover:bg-[#006bff]">Submit</button>
             </form>
+            <Toaster></Toaster>
         </div>
     );
 };

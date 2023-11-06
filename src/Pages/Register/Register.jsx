@@ -89,20 +89,19 @@ const Register = () => {
 
                                     <form onSubmit={handleEmailLogin}>
                                         <input
-                                            // onChange={(e) => setName(e.target.value)}
+                                            
                                             className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                            name="name" type="text" placeholder="Name" />
+                                            name="name" type="text" placeholder="Name" required />
                                         <input
-                                            // onChange={(e) => setEmail(e.target.value)}
+                                            
                                             className="w-full mt-3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                            name="email" type="email" placeholder="Email" />
+                                            name="email" type="email" placeholder="Email" required />
                                         <div>
 
                                             <div className="relative">
-                                                <input
-                                                    // onChange={(e) => setPassword(e.target.value)}
+                                                <input                                                 
                                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                                    name="password" type={showPassword ? "text" : "password"} placeholder="Password" />
+                                                    name="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
                                             </div>
                                             <div className="absolute -mt-10 ml-[280px] cursor-pointer">
                                                 <button onClick={() => setShowPassword(!showPassword)}>
@@ -114,9 +113,8 @@ const Register = () => {
 
                                         </div>
                                         <input
-                                            // onChange={(e) => setPhotoUrl(e.target.value)}
                                             className="w-full mt-3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                            name="photoUrl" type="url" placeholder="Photo URl" />
+                                            name="photoUrl" type="url" placeholder="Photo URl" required />
                                         <button
                                         type="submit"
                                             className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
