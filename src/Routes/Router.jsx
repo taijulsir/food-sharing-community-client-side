@@ -10,6 +10,8 @@ import Register from "../Pages/Register/Register";
 import AddFood from "../Pages/AddFood/AddFood";
 import ManageFoods from "../Pages/ManageFoods/ManageFoods";
 import FoodUpdate from "../Pages/ManageFoods/FoodUpdate";
+import About from "../Pages/About/About";
+import BLogs from "../Pages/Blogs/BLogs";
 
 
 
@@ -36,6 +38,14 @@ const router = createBrowserRouter ([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: '/blogs',
+                element: <BLogs></BLogs>
             },
             {
                 path: '/register',

@@ -11,6 +11,8 @@ import Swal from "sweetalert2";
 const ManageFoods = () => {
     const { user } = AuthHook()
     const [myFoods, setMyFoods] = useState([])
+
+    // fetch by specify user
     const url = `http://localhost:5000/allFoods?email=${user?.email}`
     useEffect(() => {
         axios.get(url)
@@ -23,7 +25,6 @@ const ManageFoods = () => {
     }, [url])
 
     const handleDelete = (id) => {
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -52,12 +53,10 @@ const ManageFoods = () => {
                     .catch(error => {
                         console.log(error)
                     })
-
             }
         });
 
     }
-
 
     const columns = useMemo(() =>
         [
@@ -96,6 +95,7 @@ const ManageFoods = () => {
     )
 
     const data = useMemo(() => myFoods, [myFoods])
+    
     return (
         <div className="container mx-auto ">
             <FoodsTable columns={columns} data={data} onDelete={handleDelete}></FoodsTable>

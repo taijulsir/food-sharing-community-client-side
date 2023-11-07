@@ -90,7 +90,7 @@ const FoodUpdate = () => {
             
                     {/* pickup Location */}
                     <div className=" relative flex items-center">
-                        <input type="text" name="pickupLocation" defaultValue={pickupLocation} id="" className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
+                        <input type="text" name="pickupLocation" placeholder="Pickup Location" defaultValue={pickupLocation} id="" className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                     </div>
                     {/* food id */}

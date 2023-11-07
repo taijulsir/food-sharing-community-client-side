@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useTable } from "react-table";
-import UpdateFoodsModal from "./UpdateFoodsModal";
+import { Link } from "react-router-dom";
 
 
 const FoodsTable = ({ columns, data, onDelete }) => {
@@ -16,7 +16,7 @@ const FoodsTable = ({ columns, data, onDelete }) => {
         data,
     });
 
-    const handleDelete = (row) => {
+    const deleteBtn = (row) => {
         onDelete(row.original._id);
     };
 
@@ -58,7 +58,7 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                                 
                                 <td>
                                     <button
-                                        onClick={() => handleDelete(row)}
+                                        onClick={() => deleteBtn(row)}
                                         className=" btn px-2 py-1 bg-red-500 text-white mr-2"
                                     >
                                         Delete
@@ -66,10 +66,10 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                                 </td>
                                 {/* create an modal */}
                                 <td>                                  
-                                        <UpdateFoodsModal food={row.original}></UpdateFoodsModal>
-                                        {/* <Link to={`/updateFoods/${row.original._id}`}><button
+                                        {/* <UpdateFoodsModal food={row.original}></UpdateFoodsModal> */}
+                                        <Link to={`/updateFoods/${row.original._id}`}><button
                                          className=" btn px-2 py-1 bg-teal-500 text-white"
-                                        >Update</button></Link> */}
+                                        >Update</button></Link>
                                 </td>
                                 <td>
                                     <button
