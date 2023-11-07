@@ -16,6 +16,9 @@ const FoodRequest = () => {
     }, [url])
 
     console.log(foods)
+    if( foods.length===0){
+        return <div className="text-center text-blue-700 ">Please Donate Food to see your donate food list</div>
+    } 
     return (
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto gap-6 my-10">

@@ -22,11 +22,7 @@ const Navbar = () => {
         isPending ? "pending" : isActive ? "active" : ""}>Blogs</NavLink></li>
       <li className="text-lg font-bold mr-2"><NavLink to='/about' className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "active" : ""}>About Us</NavLink></li>
-      <li className="text-lg font-bold mr-2"><NavLink to='/login' className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "active" : ""}>Login</NavLink></li>
-
-
-
+     
     </>
   return (
     <div className="navbar bg-teal-200">

@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
             <section className="flex flex-col mt-10 lg:justify-end font-poppins">
                 <div className="w-full bg-blue-900 pt-11 dark:bg-gray-900 ">
-                    <div className="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-0">
+                    <div className="justify-center flex-1 container  px-4 py-4 mx-auto lg:py-0">
                         <div className="flex flex-wrap items-center justify-between pb-4 border-b border-gray-500 dark:border-gray-700 lg:justify-between">
                             <h2 className="mb-4 text-2xl font-semibold tracking-wider text-gray-300 lg:mb-0 dark:text-gray-400">
                                 Subscribe to the latest Newsletters

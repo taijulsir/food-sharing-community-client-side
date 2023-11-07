@@ -72,7 +72,7 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                                         >Update</button></Link>
                                 </td>
                                 <td>
-                                   <Link to={`/requestedFoods/${row.original._id}`}> <button
+                                   <Link to={`/foods/${row.original._id}`}> <button
                                         onClick={() => handleManage(row)}
                                         className=" btn px-2 py-1 bg-blue-500 text-white"
                                     >

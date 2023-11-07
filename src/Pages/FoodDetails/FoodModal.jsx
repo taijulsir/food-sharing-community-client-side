@@ -9,7 +9,9 @@ import Swal from "sweetalert2";
 
 const FoodModal = ({ food }) => {
     const { user } = AuthHook()
-    const { _id, foodName, foodId, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorDesignation, donatorEmail } = food;
+    const { _id, foodName,  foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, category,  donatorEmail } = food;
+    console.log(_id)
+    const [foodsId,setFoodsId] = useState(_id)
     const [requestedDate, setRequestedDate] = useState("")
     const [requesterName,setRequesterName] = useState(user?.displayName)
     const [requesterImage,setRequesterImage] = useState(user?.photoURL)
@@ -25,9 +27,10 @@ const FoodModal = ({ food }) => {
 // Handle modal
     const handleModal = e => {
         e.preventDefault()
+        console.log(foodsId)
         const additionalNotes = e.target.additionalNotes.value;
         const donationMOney = e.target.donationMOney.value;
-        const requestedFoods = {donatorName,donatorEmail,donatorImage,requesterName,requesterImage,requsterEmail,foodName,foodId,foodImage,pickupLocation,requestedDate,expireDate,additionalNotes,donationMOney}
+        const requestedFoods = {donatorName,donatorEmail,donatorImage,requesterName,requesterImage,requsterEmail,foodName,foodsId,foodImage,pickupLocation,requestedDate,expireDate,additionalNotes,donationMOney}
         console.log(requestedFoods)
         axios.post('http://localhost:5000/requestFoods',requestedFoods)
         .then(response=>{
@@ -114,7 +117,7 @@ const FoodModal = ({ food }) => {
                                 </div>
                                 <div className="flex-1">
                                     <label htmlFor="" className="text-gray-600">Food Id</label>
-                                    <input className="w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="number" name="foodId" id="" value={foodId} readOnly />
+                                    <input className="w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="" name="foodId" id="" value={foodsId} readOnly />
                                 </div>
 
                             </div>
@@ -151,11 +154,11 @@ const FoodModal = ({ food }) => {
                         <div className="flex gap-2">
                             <div className="flex-1">
                                 <label htmlFor="" className="text-gray-600">Additional Notes</label>
-                                <input className=" border border-zinc-950 px-2 py-1 w-full rounded-md outline-slate-600 shadow-lg bg-slate-50" type="text" name="additionalNotes" id="" />
+                                <input className=" border border-zinc-950 px-2 py-1 w-full rounded-md outline-slate-600 shadow-lg bg-slate-50" type="text" name="additionalNotes" id="" required />
                             </div>
                             <div className="flex-1">
                                 <label htmlFor="" className="text-gray-600">Donation Money</label>
-                                <input className="w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="number" name="donationMOney" id="" />
+                                <input className="w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="number" name="donationMOney" id="" required />
                             </div>
 
                         </div>

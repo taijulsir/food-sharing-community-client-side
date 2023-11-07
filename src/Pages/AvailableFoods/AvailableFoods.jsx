@@ -42,11 +42,10 @@ const AvailableFoods = () => {
 
     // filter data
     const filterCardData = availableFoods?.filter((item) => {
-        if (item && item.category) {
+        if (item && item.category && typeof item.category === 'string' && typeof searchText === 'string') {
             return item.category.toLowerCase().includes(searchText.toLowerCase());
         }
-
-    })
+    });
     // search value
     const handleSearch = (e) => {
         e.preventDefault()
