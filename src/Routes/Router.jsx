@@ -12,6 +12,7 @@ import ManageFoods from "../Pages/ManageFoods/ManageFoods";
 import FoodUpdate from "../Pages/ManageFoods/FoodUpdate";
 import About from "../Pages/About/About";
 import BLogs from "../Pages/Blogs/BLogs";
+import FoodRequest from "../Pages/FoodRequest/FoodRequest";
 
 
 
@@ -63,7 +64,13 @@ const router = createBrowserRouter ([
                 path: '/updateFoods/:id',
                 element:<FoodUpdate></FoodUpdate>,
                 loader : ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
-            }
+            },
+            {
+                path: '/foodsRequest',
+                element: <FoodRequest></FoodRequest>,
+                
+            },
+            
             
 
         ]

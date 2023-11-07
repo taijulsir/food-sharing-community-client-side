@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect,  useState } from "react";
 import FoodsCard from "./FoodsCard";
 import { Link } from "react-router-dom";
 const Featured = () => {

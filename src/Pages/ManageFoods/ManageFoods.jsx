@@ -95,9 +95,10 @@ const ManageFoods = () => {
     )
 
     const data = useMemo(() => myFoods, [myFoods])
-    
+
     return (
-        <div className="container mx-auto ">
+        <div className=" ">
+            <h3 className="text-center mx-auto font-bold mb-10 text-2xl mt-10">After Adding Product You will see this table</h3>
             <FoodsTable columns={columns} data={data} onDelete={handleDelete}></FoodsTable>
         </div>
     );

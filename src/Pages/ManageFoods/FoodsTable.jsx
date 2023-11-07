@@ -27,7 +27,7 @@ const FoodsTable = ({ columns, data, onDelete }) => {
 
     return (
 
-        <div className="container mx-auto mt-10">
+        <div className=" container mx-auto mt-10">
 
             <table {...getTableProps()}>
 
@@ -72,12 +72,12 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                                         >Update</button></Link>
                                 </td>
                                 <td>
-                                    <button
+                                   <Link to={`/requestedFoods/${row.original._id}`}> <button
                                         onClick={() => handleManage(row)}
                                         className=" btn px-2 py-1 bg-blue-500 text-white"
                                     >
                                         Manage
-                                    </button>
+                                    </button></Link>
                                 </td>
                             </tr>
                         );

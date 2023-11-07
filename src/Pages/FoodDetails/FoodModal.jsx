@@ -5,6 +5,7 @@ import { FaHandHoldingHeart } from "react-icons/fa";
 import AuthHook from "../../CustomHooks/AuthHook";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const FoodModal = ({ food }) => {
     const { user } = AuthHook()
@@ -39,9 +40,21 @@ const FoodModal = ({ food }) => {
             console.log('Error is',error)
         })
     }
+    const handleRequest = () =>{
+        if(user?.email === donatorEmail) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Your donation item you can not request!',
+              })
+        }
+        else{
+            document.getElementById('my_modal_3').showModal()
+        }
+    }
     return (
         <div>
-            <button className="btn flex items-center w-full bg-sky-500 text-white" onClick={() => document.getElementById('my_modal_3').showModal()}><FaHandHoldingHeart className="text-2xl text-red-500"></FaHandHoldingHeart>Request Now</button>
+            <button className="btn flex items-center w-full bg-sky-500 text-white" onClick={handleRequest}><FaHandHoldingHeart className="text-2xl text-red-500"></FaHandHoldingHeart>Request Now</button>
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box">
 
