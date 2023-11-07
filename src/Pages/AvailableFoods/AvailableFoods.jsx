@@ -1,45 +1,86 @@
-import { useLoaderData } from "react-router-dom";
+
+import axios from "axios";
 import AvailableBanners from "./AvailableBanners";
 import AvailableCards from "./AvailableCards";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 
 const AvailableFoods = () => {
-    const availableFoods = useLoaderData()
-    const [foods,setfoods] = useState(availableFoods)
-    const [searchText,setSearchText] = useState('')
-    const [sortingOption,setSortingOption] = useState('')
+   
+    const [availableFoods, setAvailableFoods] = useState([])
+    const [foods, setfoods] = useState(availableFoods)
+    const [searchText, setSearchText] = useState('')
+    const [sortingOption, setSortingOption] = useState('')
+
+
+    // pagination
+    const {count} = useLoaderData()
+    const [itemsPerPage, setItemsPerPage] = useState(6);
+    const numberOfPages=parseInt(Math.ceil(count / itemsPerPage)) 
+    const pages = [...Array(numberOfPages).keys()]
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const handleItemsPerPage = (e) => {
+        const number = parseInt(e.target.value)
+        setItemsPerPage(number)
+        setCurrentPage(0)
+    }
+
+    const handlePrevious = () => {
+
+        if (currentPage > 0) {
+            return setCurrentPage(currentPage - 1)
+        }
+    }
+    const handleNext = () => {
+        if (currentPage < pages.length - 1) {
+            return setCurrentPage(currentPage + 1)
+        }
+
+    }
+
     // filter data
-     const filterCardData = foods?.filter((item) => {
-        if(item && item.category){
+    const filterCardData = availableFoods?.filter((item) => {
+        if (item && item.category) {
             return item.category.toLowerCase().includes(searchText.toLowerCase());
         }
-        
+
     })
-    const handleSearch = (e)=>{
+    // search value
+    const handleSearch = (e) => {
         e.preventDefault()
         const food = e.target.food.value;
         setSearchText(food)
     }
 
-    const handleSorting = (selectedoption) =>{
+    useEffect(() => {
+        axios.get(`http://localhost:5000/foods?page=${currentPage}&size=${itemsPerPage}`)
+            .then(res => setAvailableFoods(res.data))
+            .catch(error => console.log(error))
+    }, [currentPage, itemsPerPage])
+
+
+
+    // sorting
+    const handleSorting = (selectedoption) => {
         setSortingOption(selectedoption)
         if (selectedoption === 'quantity') {
             const sortedFoods = [...foods];
             sortedFoods.sort((a, b) => b.foodQuantity - a.foodQuantity);
             setfoods(sortedFoods);
-          }
-       else if(selectedoption === 'nearExpire'){
+        }
+        else if (selectedoption === 'nearExpire') {
             const sortedFoods = [...foods]
-            sortedFoods.sort((a,b)=>new Date (a.expireDate)- new Date (b.expireDate))
-            setfoods(sortedFoods)    
+            sortedFoods.sort((a, b) => new Date(a.expireDate) - new Date(b.expireDate))
+            setfoods(sortedFoods)
         }
         else if (selectedoption === 'longExpire') {
             const sortedFoods = [...foods];
             sortedFoods.sort((a, b) => new Date(b.expireDate) - new Date(a.expireDate));
             setfoods(sortedFoods);
         }
-        
+
     }
     return (
         <div>
@@ -175,9 +216,9 @@ const AvailableFoods = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                             </svg>
                                             <input name="food" className="bg-gray-100 outline-none" type="text" placeholder="Food name or keyword..." />
-                                           <div>
-                                           <input className="btn bg-teal-400" type="submit" value="Search" />
-                                           </div>
+                                            <div>
+                                                <input className="btn bg-teal-400" type="submit" value="Search" />
+                                            </div>
                                         </div>
                                     </form>
 
@@ -185,24 +226,15 @@ const AvailableFoods = () => {
                                     <div className="flex items-center justify-between">
                                         <div className="pr-3 border-r border-gray-300">
                                             <select
-                                            value={sortingOption}
-                                            onChange={(e)=>handleSorting(e.target.value)}
-                                            className="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
-                                             <option value="quantity">Sort by Quantity</option>
-                                            <option value="nearExpire">Sort by Near Expire</option>
-                                            <option value="longExpire">Sort by Long Expire</option>
+                                                value={sortingOption}
+                                                onChange={(e) => handleSorting(e.target.value)}
+                                                className="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
+                                                <option value="quantity">Sort by Quantity</option>
+                                                <option value="nearExpire">Sort by Near Expire</option>
+                                                <option value="longExpire">Sort by Long Expire</option>
                                             </select>
                                         </div>
-                                        <div className="flex items-center pl-3">
-                                            <p className="text-xs text-gray-400">Show</p>
-                                            <div className="px-2 py-2 text-xs text-gray-500 ">
-                                                <select name="" id="" className="block text-base bg-gray-100 cursor-pointer w-11 dark:text-gray-400 dark:bg-gray-900">
-                                                    <option value="">15</option>
-                                                    <option value="">17</option>
-                                                    <option value="">19</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -228,30 +260,18 @@ const AvailableFoods = () => {
                             {/* pagination container */}
 
                             <div className="flex justify-end mt-6">
-                                <nav aria-label="page-navigation">
-                                    <ul className="flex list-style-none">
-                                        <li className="page-item disabled ">
-                                            <a href="#" className="relative block pointer-events-none px-3 py-1.5 mr-3 text-base text-gray-700 transition-all duration-300  rounded-md dark:text-gray-400 hover:text-gray-100 hover:bg-blue-600">Previous
-                                            </a>
-                                        </li>
-                                        <li className="page-item ">
-                                            <a href="#" className="relative block px-3 py-1.5 mr-3 text-base hover:text-blue-700 transition-all duration-300 hover:bg-blue-200 dark:hover:text-gray-400 dark:hover:bg-gray-700 rounded-md text-gray-100 bg-blue-400">1
-                                            </a>
-                                        </li>
-                                        <li className="page-item ">
-                                            <a href="#" className="relative block px-3 py-1.5 text-base text-gray-700 transition-all duration-300 dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-blue-100 rounded-md mr-3  ">2
-                                            </a>
-                                        </li>
-                                        <li className="page-item ">
-                                            <a href="#" className="relative block px-3 py-1.5 text-base text-gray-700 transition-all duration-300 dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-blue-100 rounded-md mr-3 ">3
-                                            </a>
-                                        </li>
-                                        <li className="page-item ">
-                                            <a href="#" className="relative block px-3 py-1.5 text-base text-gray-700 transition-all duration-300 dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-blue-100 rounded-md ">Next
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                <button onClick={handlePrevious} className="btn mr-2 ">Prev</button>
+                                {pages.map(page => <button
+                                    className={currentPage === page && 'bg-amber-600 btn' || 'btn mr-2' } 
+                                    onClick={() => setCurrentPage(page)}
+                                    key={page}>{page}</button>)}
+                                <button onClick={handleNext} className="btn mr-2">Next</button>
+                                <select className="border bg-white rounded-lg shadow-xl px-3 py-2" value={itemsPerPage} name="" id="" onChange={handleItemsPerPage}>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                </select>
                             </div>
                         </div>
                     </div>

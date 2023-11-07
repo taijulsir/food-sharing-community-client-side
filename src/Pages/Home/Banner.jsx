@@ -45,7 +45,7 @@ const Banner = () => {
                             Serving with Compassion <br />  and  Love .
                         </div>
                         <div data-swiper-parallax="-100">
-                            <p className="text-xl font-bold text-zinc-950 w-2/5  mt-5">
+                            <p className="text-xl font-bold text-zinc-950 sm:text-white lg:w-2/5  mt-5">
                                 We believe in serving with compassion and ensuring that no one goes hungry. Be a part of our food sharing community and make a positive impact.
                             </p>
                         </div>
@@ -58,7 +58,7 @@ const Banner = () => {
                         Empower Our Community  <br />with Kindness  .
                         </div>
                         <div data-swiper-parallax="-100">
-                            <p className="text-xl font-bold text-zinc-950 w-2/5  mt-5">
+                            <p className="text-xl font-bold text-zinc-950 lg:w-2/5  mt-5">
                             We`re dedicated to making a difference in our community. Join us in our mission to help those in need and share the joy of giving.
                             </p>
                         </div>
@@ -70,7 +70,7 @@ const Banner = () => {
                         Share the Blessing  <br />of Food   .
                         </div>
                         <div data-swiper-parallax="-100">
-                            <p className="text-xl font-bold text-zinc-950 w-2/5  mt-5">
+                            <p className="text-xl font-bold text-zinc-950 lg:w-2/5  mt-5">
                             Every act of kindness matters. Donate food, share your resources, and show you care. Together, we can create a world without hunger.
                             </p>
                         </div>
