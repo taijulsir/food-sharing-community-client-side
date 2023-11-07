@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import AuthHook from "../../CustomHooks/AuthHook";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
-const UpdateFoodsModal = ({ food }) => {
+const UpdateFoodsModal = ({ food}) => {
+    console.log(food)
     const { user } = AuthHook()
     const { _id, foodName, foodId, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorEmail,status } = food;
 
@@ -60,7 +61,7 @@ const UpdateFoodsModal = ({ food }) => {
                             <div className="grid sm:grid-cols-2 gap-6">
                                 {/*donator name  */}
                                 <div className="relative flex items-center">
-                                    <input type="text" placeholder="Name" name="donatorName" required value={donatorName}
+                                    <input type="text" placeholder="Name" name="donatorName"  defaultValue={donatorName}
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4"
                                         viewBox="0 0 24 24">
@@ -73,7 +74,7 @@ const UpdateFoodsModal = ({ food }) => {
 
                                 {/* donator email */}
                                 <div className="relative flex items-center">
-                                    <input type="email" placeholder="Email" name="donatorEmail" value={donatorEmail} required
+                                    <input type="email" placeholder="Email" name="donatorEmail" defaultValue={donatorEmail} 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4"
                                         viewBox="0 0 682.667 682.667">
@@ -94,65 +95,66 @@ const UpdateFoodsModal = ({ food }) => {
                                 </div>
                                 {/* donator  image  */}
                                 <div className="relative flex items-center">
-                                    <input type="url" placeholder="Your Photo Url" name="donatorImage" value={donatorImage} required
+                                    <input type="url" placeholder="Your Photo Url" name="donatorImage" defaultValue={donatorImage} 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
                                 {/* PickUp location */}
                                 <div className="relative flex items-center">
-                                    <input type="text" placeholder="Pickup Location" name="pickupLocation" value={pickupLocation} required
+                                    <input type="text" placeholder="Pickup Location" name="pickupLocation" 
+                                    defaultValue={pickupLocation} 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
 
                                 {/* food id */}
                                 <div className="relative flex items-center">
-                                    <input type="number" placeholder="Food Id" name="foodId" value={foodId} required
+                                    <input type="number" placeholder="Food Id" name="foodId" defaultValue={foodId} 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
                                 {/* food name */}
                                 <div className="relative flex items-center">
-                                    <input type="text" placeholder="Food Name" name="foodName" value={foodName} required
+                                    <input type="text" placeholder="Food Name" name="foodName" defaultValue={foodName} 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
 
                                 {/* food image */}
                                 <div className="relative flex items-center">
-                                    <input type="url" placeholder="Food Photo Url" name="foodImage" value={foodImage} required
+                                    <input type="url" placeholder="Food Photo Url" name="foodImage" defaultValue={foodImage} 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
 
                                 {/*food quantity  */}
                                 <div className="relative flex items-center">
-                                    <input type="number" placeholder="Food Quantity" value={foodQuantity} name="foodQuantity" required
+                                    <input type="number" placeholder="Food Quantity" defaultValue={foodQuantity} name="foodQuantity" 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
 
                                 {/* category */}
                                 <div className="relative flex items-center">
-                                    <input type="text" placeholder="Category as Chicken,Beef" value={category} name="category" required
+                                    <input type="text" placeholder="Category as Chicken,Beef" defaultValue={category} name="category" 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
                                 {/* Expire Date */}
                                 <div className="relative flex items-center">
-                                    <input type="date" placeholder="Expire Date" value={expireDate} name="expireDate" required
+                                    <input type="date" placeholder="Expire Date" defaultValue={expireDate} name="expireDate" 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
                                 {/* Additional Notes */}
                                 <div className="relative flex items-center">
-                                    <input type="text" placeholder="Additional Notes" value={additionalNotes} name="additionalNotes" required
+                                    <input type="text" placeholder="Additional Notes" defaultValue={additionalNotes} name="additionalNotes" 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
                                 {/* status */}
                                 <div className="relative flex items-center">
-                                    <input type="text" placeholder="Status" name="status" value={status} required
+                                    <input type="text" placeholder="Status" name="status" defaultValue={status} 
                                         className="px-4 py-3 bg-white text-black w-full text-sm border-b-2 focus:border-[#007bff] outline-none" />
 
                                 </div>
