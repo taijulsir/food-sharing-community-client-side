@@ -12,6 +12,7 @@ const ManageFood = () => {
     const handleStatus = (e) => {
         e.preventDefault()
         const status = newStatus;
+     
         axios.patch(`http://localhost:5000/updateStatus/${_id}`,{status})
         .then(res=>{
             console.log(res.data)
@@ -80,18 +81,17 @@ const ManageFood = () => {
                             <div className="mt-6 text-center">
                                 <p className="text-base text-gray-400 font-bold uppercase">{request.requesterName}</p>
                                 <h3 className="text-white font-bold text-xl mt-4">{request.requsterEmail}</h3>
-                                <p className="text-base font-medium text-zinc-950">Status: "{foods.foods.status}"" </p>
+                                <p className="text-base font-medium text-zinc-950">Status: "{foods.foods.status}" </p>
                             </div>
                             <div>
-                                <form onClick={handleStatus}>
+                                <form onSubmit={handleStatus}>
                                     <div className="w-48 flex items-center">
                                         <select name="status" onChange={(e) => setNewStatus(e.target.value)} className="w-full border  border-gray-300 rounded-md px-3 py-2 text-gray-700 focus:outline-none focus:border-blue-500">
                                             <option value="available">available</option>
-                                            <option value="Deliverd">Delivered</option>
+                                            <option value="Delivered">Delivered</option>
                                         </select>
-                                        <button type="submit" className="px-3 py-1 ml-1 bg-white rounded-lg ">Change</button>
-                                    </div>
-
+                                         <button type="submit" className="px-3 py-1 ml-1 bg-white rounded-lg ">Change</button>
+                                    </div>                               
                                 </form>
                             </div>
                         </div>

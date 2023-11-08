@@ -62,25 +62,20 @@ const AvailableFoods = () => {
 
 
     // sorting
-    const handleSorting = (selectedoption) => {
-        setSortingOption(selectedoption)
-        if (selectedoption === 'quantity') {
-            const sortedFoods = [...foods];
-            sortedFoods.sort((a, b) => b.foodQuantity - a.foodQuantity);
-            setfoods(sortedFoods);
-        }
-        else if (selectedoption === 'nearExpire') {
-            const sortedFoods = [...foods]
-            sortedFoods.sort((a, b) => new Date(a.expireDate) - new Date(b.expireDate))
-            setfoods(sortedFoods)
-        }
-        else if (selectedoption === 'longExpire') {
-            const sortedFoods = [...foods];
-            sortedFoods.sort((a, b) => new Date(b.expireDate) - new Date(a.expireDate));
-            setfoods(sortedFoods);
-        }
-
+   // sorting
+const handleSorting = (selectedoption) => {
+    setSortingOption(selectedoption);
+    const sortedFoods = [...filterCardData]; // Sort the filtered data
+    if (selectedoption === 'quantity') {
+        sortedFoods.sort((a, b) => b.foodQuantity - a.foodQuantity);
+    } else if (selectedoption === 'nearExpire') {
+        sortedFoods.sort((a, b) => new Date(a.expireDate) - new Date(b.expireDate));
+    } else if (selectedoption === 'longExpire') {
+        sortedFoods.sort((a, b) => new Date(b.expireDate) - new Date(a.expireDate));
     }
+    setAvailableFoods(sortedFoods); // Update the availableFoods state with sorted data
+}
+
     return (
         <div>
             <AvailableBanners></AvailableBanners>
