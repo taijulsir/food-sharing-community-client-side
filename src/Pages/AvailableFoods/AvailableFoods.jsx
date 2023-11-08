@@ -9,7 +9,6 @@ import { useLoaderData } from "react-router-dom";
 const AvailableFoods = () => {
    
     const [availableFoods, setAvailableFoods] = useState([])
-    const [foods, setfoods] = useState(availableFoods)
     const [searchText, setSearchText] = useState('')
     const [sortingOption, setSortingOption] = useState('')
 
@@ -94,25 +93,25 @@ const handleSorting = (selectedoption) => {
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-400 ">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg">Biscuits</span>
+                                            <span className="text-lg">Biriyani</span>
                                         </label>
                                     </li>
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-400 ">
                                             <input type="checkbox" className="w-4 h-4 mr-2 " />
-                                            <span className="text-lg">Fruits</span>
+                                            <span className="text-lg">Chicken</span>
                                         </label>
                                     </li>
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-400">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg">Seafood</span>
+                                            <span className="text-lg">Beef</span>
                                         </label>
                                     </li>
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-400">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg">Vegetables</span>
+                                            <span className="text-lg">Fride Rice</span>
                                         </label>
                                     </li>
                                     <li className="mb-4">
@@ -122,7 +121,7 @@ const handleSorting = (selectedoption) => {
                                         </label>
                                     </li>
                                 </ul>
-                                <a href="#" className="text-base font-medium text-blue-500 hover:underline dark:text-blue-400">View
+                                <a  className="text-base font-medium text-blue-500 hover:underline dark:text-blue-400">View
                                     More</a>
                             </div>
 
@@ -134,13 +133,13 @@ const handleSorting = (selectedoption) => {
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-300">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg dark:text-gray-400">In Stock</span>
+                                            <span className="text-lg dark:text-gray-400">Available</span>
                                         </label>
                                     </li>
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-300">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg dark:text-gray-400">On Sale</span>
+                                            <span className="text-lg dark:text-gray-400">Deliverded</span>
                                         </label>
                                     </li>
                                 </ul>
@@ -153,29 +152,29 @@ const handleSorting = (selectedoption) => {
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-300">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg dark:text-gray-400">Apple</span>
+                                            <span className="text-lg dark:text-gray-400">Kacchi Bhai</span>
                                         </label>
                                     </li>
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-300">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg dark:text-gray-400">Oreo</span>
+                                            <span className="text-lg dark:text-gray-400">Sultan Dine`s</span>
                                         </label>
                                     </li>
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-300">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg dark:text-gray-400">Mango</span>
+                                            <span className="text-lg dark:text-gray-400">PizzaBurg</span>
                                         </label>
                                     </li>
                                     <li className="mb-4">
                                         <label className="flex items-center dark:text-gray-300">
                                             <input type="checkbox" className="w-4 h-4 mr-2" />
-                                            <span className="text-lg dark:text-gray-400">Nebico</span>
+                                            <span className="text-lg dark:text-gray-400">Haji Biriyani</span>
                                         </label>
                                     </li>
                                 </ul>
-                                <a href="#" className="text-base font-medium text-blue-500 hover:underline dark:text-blue-400">View
+                                <a  className="text-base font-medium text-blue-500 hover:underline dark:text-blue-400">View
                                     More</a>
                             </div>
                         </div>
@@ -233,7 +232,6 @@ const handleSorting = (selectedoption) => {
                                 </div>
                             </div>
 
-
                             {/* card container */}
                             <div className="flex flex-wrap items-center ">
                                 {/* card item */}
@@ -250,9 +248,7 @@ const handleSorting = (selectedoption) => {
                                 </section >
                             </div>
 
-
                             {/* pagination container */}
-
                             <div className="flex justify-end mt-6">
                                 <button onClick={handlePrevious} className="btn mr-2 ">Prev</button>
                                 {pages.map(page => <button
@@ -261,7 +257,7 @@ const handleSorting = (selectedoption) => {
                                     key={page}>{page}</button>)}
                                 <button onClick={handleNext} className="btn mr-2">Next</button>
                                 <select className="border bg-white rounded-lg shadow-xl px-3 py-2" value={itemsPerPage} name="" id="" onChange={handleItemsPerPage}>
-                                    <option value="5">5</option>
+                                    <option value="6">6</option>
                                     <option value="10">10</option>
                                     <option value="20">20</option>
                                     <option value="50">50</option>

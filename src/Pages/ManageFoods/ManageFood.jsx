@@ -13,7 +13,7 @@ const ManageFood = () => {
         e.preventDefault()
         const status = newStatus;
      
-        axios.patch(`http://localhost:5000/updateStatus/${_id}`,{status})
+        axios.patch(`https://food-donation-community-server-side.vercel.app/updateStatus/${_id}`,{status})
         .then(res=>{
             console.log(res.data)
             if(res.data.modifiedCount>0){
