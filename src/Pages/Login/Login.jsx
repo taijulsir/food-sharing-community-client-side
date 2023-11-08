@@ -5,51 +5,54 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import AuthHook from "../../CustomHooks/AuthHook";
 
+
+
 const Login = () => {
-    const { signIn,googleLogin, githubLogin } = AuthHook();
-    const [showPassword,setShowPassword] = useState(false)
-    const [email,setEmail] = useState("")
-    const [password,setPassword] =useState("")
-    console.log(email,password)
+    const { signIn, googleLogin, githubLogin } = AuthHook();
+    const [showPassword, setShowPassword] = useState(false)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    console.log(email, password)
     const navigate = useNavigate()
-    
+
+  
     const handleEmailLogin = (e) => {
         e.preventDefault()
         signIn(email, password)
-        .then(results => {
-            const result = results.user;
-            console.log(result)
-            // after login 
-            navigate(location?.state ? location.state : '/')
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: 'Login Succesful.'
-              });
-        })
-        .catch(err => {
-            const errorMessage = err.message;
-            toast.error(errorMessage)
-        })
-        
+            .then(results => {
+                const result = results.user;
+                console.log(result)
+                // after login 
+                navigate(location?.state ? location.state : '/')
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Login Succesful.'
+                });
+            })
+            .catch(err => {
+                const errorMessage = err.message;
+                toast.error(errorMessage)
+            })
+
     }
-    
+
     const handlePopupLogin = (media) => {
         media()
-        .then(result => {
-            const users = result.user
-            console.log(users)
-            navigate(location?.state ? location.state : '/')
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: 'Login Succesful.'
-              });
-        })
-        .catch(error => {
-            const errorMessage = error.message;
-            toast.err(errorMessage);
-        })
+            .then(result => {
+                const users = result.user
+                console.log(users)
+                navigate(location?.state ? location.state : '/')
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Login Succesful.'
+                });
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                toast.err(errorMessage);
+            })
     }
 
     return (
@@ -85,28 +88,28 @@ const Login = () => {
 
                                             <div className="mb-4">
                                                 <input type="text"
-                                                onChange={(e)=>setEmail(e.target.value)}
+                                                    onChange={(e) => setEmail(e.target.value)}
                                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                                name="email"    placeholder="Your email" required />
+                                                    name="email" placeholder="Your email" required />
                                             </div>
 
 
                                             <div>
-                                            <div className="relative">
-                                                <input
-                                                    onChange={(e) => setPassword(e.target.value)}
-                                                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                                    name="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
-                                            </div>
-                                            <div className="absolute -mt-10 ml-[380px] cursor-pointer">
-                                                <button onClick={() => setShowPassword(!showPassword)}>
-                                                    {
-                                                        showPassword ? <FaEye className="text-2xl text-[#403F3F]"></FaEye> : <FaEyeSlash className="text-2xl text-[#403F3F]"></FaEyeSlash>
-                                                    }
-                                                </button>
-                                            </div>
+                                                <div className="relative">
+                                                    <input
+                                                        onChange={(e) => setPassword(e.target.value)}
+                                                        className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                                        name="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+                                                </div>
+                                                <div className="absolute -mt-10 ml-[380px] cursor-pointer">
+                                                    <button onClick={() => setShowPassword(!showPassword)}>
+                                                        {
+                                                            showPassword ? <FaEye className="text-2xl text-[#403F3F]"></FaEye> : <FaEyeSlash className="text-2xl text-[#403F3F]"></FaEyeSlash>
+                                                        }
+                                                    </button>
+                                                </div>
 
-                                        </div>
+                                            </div>
 
                                             <div className="mb-4 text-right ">
                                                 <a href="#"
@@ -117,7 +120,7 @@ const Login = () => {
                                             <button
                                                 className="w-full py-4 mb-4 font-semibold text-gray-200 bg-green-600 rounded-lg px-7 dark:text-gray-300 dark:bg-green-600 hover:text-blue-200 "
                                                 type="submit">LOGIN</button>
-                                            <p className="text-sm text-gray-700 dark:text-gray-400"> Need an account? 
+                                            <p className="text-sm text-gray-700 dark:text-gray-400"> Need an account?
                                                 <Link to='/register'
                                                     className="text-sm font-semibold text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
                                                     Create an account</Link>
@@ -149,6 +152,7 @@ const Login = () => {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="relative items-center justify-center hidden w-full lg:flex lg:w-1/2 ">
                                 <div className="absolute inset-0 z-10 bg-gray-900 opacity-40"></div>
                                 <img className="absolute inset-0 z-0 object-cover w-full h-full ml-auto"
@@ -166,6 +170,8 @@ const Login = () => {
                                         className="inline-block px-6 py-2 font-medium bg-green-600 text-gray-50 dark:text-gray-300">
                                         Join now</a>
                                 </div>
+
+                               
                             </div>
                         </div>
                     </div>

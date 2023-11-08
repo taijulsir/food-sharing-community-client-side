@@ -54,7 +54,7 @@ const AvailableFoods = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/foods?page=${currentPage}&size=${itemsPerPage}`)
+        axios.get(`https://food-donation-community-server-side.vercel.app/foods?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => setAvailableFoods(res.data))
             .catch(error => console.log(error))
     }, [currentPage, itemsPerPage])

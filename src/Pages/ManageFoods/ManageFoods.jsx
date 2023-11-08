@@ -13,7 +13,7 @@ const ManageFoods = () => {
     const [myFoods, setMyFoods] = useState([])
 
     // fetch by specify user
-    const url = `http://localhost:5000/allFoods?email=${user?.email}`
+    const url = `https://food-donation-community-server-side.vercel.app/allFoods?email=${user?.email}`
     useEffect(() => {
         axios.get(url)
             .then(res => {
@@ -36,7 +36,7 @@ const ManageFoods = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:5000/allFoods/${id}`)
+                axios.delete(`https://food-donation-community-server-side.vercel.app/allFoods/${id}`)
                     .then(res => {
                         console.log(res)
                         if (res.data.deletedCount > 0) {

@@ -30,12 +30,12 @@ const router = createBrowserRouter ([
             {
                 path: '/availableFoods',
                 element: <AvailableFoods></AvailableFoods>,
-                loader: () => fetch('http://localhost:5000/foodCount')
+                loader: () => fetch('https://food-donation-community-server-side.vercel.app/foodCount')
             },
             {
                 path: '/foodDetails/:id',
                 element: <FoodDetails></FoodDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://food-donation-community-server-side.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/login',
@@ -64,7 +64,7 @@ const router = createBrowserRouter ([
             {
                 path: '/updateFoods/:id',
                 element:<FoodUpdate></FoodUpdate>,
-                loader : ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader : ({params}) => fetch(`https://food-donation-community-server-side.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/foodsRequest',
@@ -73,7 +73,7 @@ const router = createBrowserRouter ([
             {
                 path: '/foods/:id',
                 element: <ManageFood></ManageFood>,
-                loader: ({params}) => fetch(`http://localhost:5000/requestedFoods/${params.id}`)
+                loader: ({params}) => fetch(`https://food-donation-community-server-side.vercel.app/requestedFoods/${params.id}`)
             }
             
             

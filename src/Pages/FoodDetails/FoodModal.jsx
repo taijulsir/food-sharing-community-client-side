@@ -32,7 +32,7 @@ const FoodModal = ({ food }) => {
         const donationMOney = e.target.donationMOney.value;
         const requestedFoods = {donatorName,donatorEmail,donatorImage,requesterName,requesterImage,requsterEmail,foodName,foodsId,foodImage,pickupLocation,requestedDate,expireDate,additionalNotes,donationMOney}
         console.log(requestedFoods)
-        axios.post('http://localhost:5000/requestFoods',requestedFoods)
+        axios.post('https://food-donation-community-server-side.vercel.app/requestFoods',requestedFoods)
         .then(response=>{
             console.log(response.data)
             if(response.data.insertedId){

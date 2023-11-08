@@ -8,7 +8,7 @@ import axios from "axios";
 const FoodRequest = () => {
     const { user } = AuthHook()
     const [foods, setFoods] = useState([])
-    const url = `http://localhost:5000/requestedFoods?email=${user?.email}`
+    const url = `https://food-donation-community-server-side.vercel.app/requestedFoods?email=${user?.email}`
     useEffect(() => {
         axios.get(url)
             .then(res => setFoods(res.data))

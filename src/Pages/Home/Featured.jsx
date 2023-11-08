@@ -6,7 +6,7 @@ const Featured = () => {
     const [foods, setFoods] = useState([])
     const [sortFoods, setSortFoods] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/foods')
+        axios.get('https://food-donation-community-server-side.vercel.app/foods')
             .then(res => {
                 setFoods(res.data)
             })

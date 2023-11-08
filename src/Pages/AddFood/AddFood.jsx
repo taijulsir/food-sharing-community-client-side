@@ -28,7 +28,7 @@ const AddFood = () => {
         const status= form.status.value;
         const foods = {foodName,foodImage,foodId,foodQuantity,donatorName,donatorEmail,donatorImage,pickupLocation,expireDate,category, additionalNotes,status,donatorDesignation}
         console.log(foods)
-        axios.post('http://localhost:5000/addFoods',foods)
+        axios.post('https://food-donation-community-server-side.vercel.app/addFoods',foods)
         .then(res=>{
             console.log(res.data)
             if(res.data.insertedId){

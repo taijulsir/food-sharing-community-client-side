@@ -31,7 +31,7 @@ const UpdateFoodsModal = ({ food}) => {
         const status = form.status.value;
         const foods = {foodName,foodImage,foodId,foodQuantity,donatorName,donatorEmail,donatorImage,pickupLocation,expireDate,category, additionalNotes,status,donatorDesignation}
         console.log(foods)
-        axios.put(`http://localhost:5000/updateFoods/${_id}`,foods)
+        axios.put(`https://food-donation-community-server-side.vercel.app/updateFoods/${_id}`,foods)
         .then(res=>{
             console.log(res.data)
             if(res.data.modifiedCount > 0){
