@@ -3,6 +3,7 @@ import { useState } from "react";
 import AuthHook from "../../CustomHooks/AuthHook";
 import { useEffect } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 const FoodRequest = () => {
@@ -21,6 +22,9 @@ const FoodRequest = () => {
     } 
     return (
         <div>
+              <Helmet>
+                <title>My Food Request Item</title>
+            </Helmet>
             <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto gap-6 my-10">
                 {foods.map(food =>
                      <section key={food._id} className="flex items-center py-10 bg-stone-100 font-poppins dark:bg-gray-800 ">

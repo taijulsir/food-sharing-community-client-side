@@ -6,6 +6,7 @@ import AuthHook from "../../CustomHooks/AuthHook";
 import axios from "axios";
 import FoodsTable from "./FoodsTable";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const ManageFoods = () => {
@@ -101,6 +102,9 @@ const ManageFoods = () => {
     }  
         return (
         <div className=" ">
+              <Helmet>
+                <title>Manage Your Foods</title>
+            </Helmet>
             <h3 className="text-center mx-auto font-bold mb-10 text-2xl mt-10">After Adding Product You will see this table</h3>
             <FoodsTable columns={columns} data={data} onDelete={handleDelete}></FoodsTable>
         </div>

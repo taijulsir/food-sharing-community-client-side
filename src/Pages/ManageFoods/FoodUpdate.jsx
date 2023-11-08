@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import AuthHook from "../../CustomHooks/AuthHook";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 
@@ -44,6 +45,9 @@ const FoodUpdate = () => {
     }
     return (
         <div className="container mx-auto">
+              <Helmet>
+                <title>Update Food Details of {foodName}</title>
+            </Helmet>
             <h3 className="text-xl font-semibold text-center">Checkout Your Foods Request Information</h3>
             <form onSubmit={handleUpdate} className="px-3 mt-3 space-y-5">
                 <div className="grid sm:grid-cols-2 gap-6">

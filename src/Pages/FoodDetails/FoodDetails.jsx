@@ -2,6 +2,7 @@
 import { useLoaderData } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import FoodModal from "./FoodModal";
+import { Helmet } from "react-helmet";
 
 const FoodDetails = () => {
     const food = useLoaderData()
@@ -14,6 +15,9 @@ const FoodDetails = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Food Details of {foodName}</title>
+            </Helmet>
             <section className=" py-14 bg-stone-100 font-poppins dark:bg-gray-800">
                 <div className="max-w-6xl px-4 py-6 mx-auto lg:py-4 md:px-6">
                     <div className="grid lg:grid-cols-[70%,1fr]  gap-6  pt-9 pb-7">

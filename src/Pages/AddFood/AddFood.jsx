@@ -1,6 +1,7 @@
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import AuthHook from "../../CustomHooks/AuthHook";
+import { Helmet } from "react-helmet";
 
 
 const AddFood = () => {
@@ -42,6 +43,9 @@ const AddFood = () => {
     }
     return (
         <div className="container mx-auto my-10">
+            <Helmet>
+                <title>Add Food Form</title>
+            </Helmet>
             <h1 className="text-3xl font-bold text-center ">Add Your Surplus Foods</h1>
 
             <form className="font-[sans-serif]" onSubmit={handleAddFoods}>

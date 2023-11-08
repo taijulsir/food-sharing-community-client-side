@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet";
 
 
 const BLogs = () => {
     return (
         <div>
+            <Helmet>
+                <title>Blogs</title>
+            </Helmet>
            <section className="pb-24 ">
         
         <div className="max-w-6xl mx-auto">

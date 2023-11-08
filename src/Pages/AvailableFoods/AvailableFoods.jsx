@@ -4,6 +4,7 @@ import AvailableBanners from "./AvailableBanners";
 import AvailableCards from "./AvailableCards";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const AvailableFoods = () => {
@@ -77,6 +78,9 @@ const handleSorting = (selectedoption) => {
 
     return (
         <div>
+            <Helmet>
+                <title>Available Foods</title>
+            </Helmet>
             <AvailableBanners></AvailableBanners>
             <section className="py-20 bg-gray-50 font-poppins dark:bg-gray-800 ">
                 <div className="px-4 py-4 mx-auto container lg:py-6 md:px-6">
