@@ -29,7 +29,6 @@ const ManageFood = () => {
     }
     return (
         <div>
-
             {/* foods image */}
             <section className="flex items-center py-10  font-poppins dark:bg-gray-800 ">
                 <div className="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
@@ -66,13 +65,9 @@ const ManageFood = () => {
                     </div>
                 </div>
             </section>
-
             {/* requester information */}
-
             <h3 className="text-3xl font-bold text-center">Who are Request</h3>
-
             <div className="flex flex-wrap gap-6 ">
-
                 {foods.requests.map(request =>
                     <div key={request._id}
                         className="bg-[#4878a3] px-8 py-10 shadow-[0_2px_15px_-6px_rgba(0,0,0,0.2)] w-full max-w-sm rounded-2xl font-[sans-serif] overflow-hidden mx-auto mt-4">

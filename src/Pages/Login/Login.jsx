@@ -4,7 +4,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import AuthHook from "../../CustomHooks/AuthHook";
-
+import loginAnimation from "../../Lottie/login - 1699455072449.json"
+import Lottie from "lottie-react";
 
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
     console.log(email, password)
     const navigate = useNavigate()
 
-  
+
     const handleEmailLogin = (e) => {
         e.preventDefault()
         signIn(email, password)
@@ -54,6 +55,15 @@ const Login = () => {
                 toast.err(errorMessage);
             })
     }
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
 
     return (
         <div>
@@ -154,24 +164,12 @@ const Login = () => {
                             </div>
 
                             <div className="relative items-center justify-center hidden w-full lg:flex lg:w-1/2 ">
-                                <div className="absolute inset-0 z-10 bg-gray-900 opacity-40"></div>
-                                <img className="absolute inset-0 z-0 object-cover w-full h-full ml-auto"
-                                    src="https://i.postimg.cc/m272Vf4c/food-Share.webp" />
-                                <div className="top-0 z-10 max-w-xl mx-auto mb-12 text-center ">
-                                    <h2 className="mb-4 text-4xl font-bold text-gray-100 dark:text-gray-300 ">
-                                        Welcome to our community and join with us</h2>
-                                    <div className="max-w-lg mx-auto mb-6">
-                                        <p className="pt-6 font-medium text-gray-300 dark:text-gray-300">
-                                            lorem ipsum dor amet sidcuscd andih wkoidus iusoyions hejitywa qopasation dummy text
-                                            ipsum
-                                        </p>
-                                    </div>
-                                    <a href="#"
-                                        className="inline-block px-6 py-2 font-medium bg-green-600 text-gray-50 dark:text-gray-300">
-                                        Join now</a>
-                                </div>
-
-                               
+                                <Lottie
+                                    animationData={loginAnimation}
+                                    options={defaultOptions}
+                                    height={400}
+                                    width={400}>
+                                </Lottie>
                             </div>
                         </div>
                     </div>

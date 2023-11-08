@@ -7,11 +7,20 @@ import axios from "axios";
 import FoodsTable from "./FoodsTable";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
-
+import Lottie from "lottie-react";
+import nodata from "../../Lottie/nodata - 1699457305397.json"
 
 const ManageFoods = () => {
     const { user } = AuthHook()
     const [myFoods, setMyFoods] = useState([])
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
 
     // fetch by specify user
     const url = `https://food-donation-community-server-side.vercel.app/allFoods?email=${user?.email}`
@@ -98,7 +107,12 @@ const ManageFoods = () => {
     const data = useMemo(() => myFoods, [myFoods])
 
     if( myFoods.length===0){
-        return <div className="text-center text-blue-700 my-60 ">Please Donate Food to see your donate food list</div>
+        return <div className="max-w-5xl mx-auto "><Lottie
+        animationData={nodata}
+        options={defaultOptions}
+        height={400}
+        width={400}>
+    </Lottie></div>
     }  
         return (
         <div className=" ">

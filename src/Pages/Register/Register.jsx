@@ -3,107 +3,116 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import AuthHook from "../../CustomHooks/AuthHook";
 import toast, { Toaster } from "react-hot-toast";
+import register from '../../Lottie/login - 1699455072449.json'
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
 const Register = () => {
-    const {createUser, profileUpdate,signOutUser,googleLogin, githubLogin} = AuthHook()
+    const { createUser, profileUpdate, signOutUser, googleLogin, githubLogin } = AuthHook()
     const [showPassword, setShowPassword] = useState(false)
-    // const [email, setEmail] = useState("")
-    // const [password, setPassword] = useState("")
-    // const [name, setName] = useState("")
-    // const [photoUrl, setPhotoUrl] = useState("")
     const navigate = useNavigate()
+
+    // animation
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
 
     // email login
     const handleEmailLogin = (e) => {
-  
+
 
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         const name = e.target.name.value;
         const photoUrl = e.target.photoUrl.value;
-        console.log(email,password,name,photoUrl)
+        console.log(email, password, name, photoUrl)
         // password validation
-        
-        if(!/^(?=.*[A-Z])/.test(password)){
-          toast.error('Password have at least one uppercase letter')
-          return;
+
+        if (!/^(?=.*[A-Z])/.test(password)) {
+            toast.error('Password have at least one uppercase letter')
+            return;
         }
-        if(!/(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-])/.test(password)){
+        if (!/(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-])/.test(password)) {
             toast.error('Password must be at least one special character')
             return;
         }
-        createUser(email,password)
-        .then(results =>{
-            console.log(results.user)
-            profileUpdate(name,photoUrl)
+        createUser(email, password)
             .then(results => {
-                console.log(results)
+                console.log(results.user)
+                profileUpdate(name, photoUrl)
+                    .then(results => {
+                        console.log(results)
+                    })
+                    .catch(errors => {
+                        console.log(errors)
+                    })
+                toast.success("User created succesfully,Now Login")
+                signOutUser()
+                navigate('/login')
             })
-            .catch(errors => {
-                console.log(errors)
+            .catch(error => {
+                const errorMessage = error.message
+                toast.error(errorMessage)
             })
-            toast.success("User created succesfully,Now Login")
-            signOutUser()
-            navigate('/login')
-        })
-        .catch(error=>{
-           const errorMessage = error.message
-           toast.error(errorMessage)
-        })
     }
 
+    // popup login
     const handlePopupLogin = (media) => {
         media()
-        .then(result => {
-            const users = result.user
-           console.log(users)
-           Swal.fire({
-               icon: 'success',
-               title: 'Success!',
-               text: 'Registration Succesful,Now login.'
-            });
-            signOutUser()
-            navigate('/login')
-        })
-        .catch(error => {
-            const errorMessage = error.message;
-            toast.error(errorMessage);
-        })
+            .then(result => {
+                const users = result.user
+                console.log(users)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Registration Succesful,Now login.'
+                });
+                signOutUser()
+                navigate('/login')
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+            })
     }
 
     return (
         <div>
 
-            <div className=" bg-gray-100 text-gray-900 flex justify-center">
-                <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+            <div className=" text-gray-900 flex justify-center">
+                <div className="container mx-auto m-0 sm:m-10  sm:rounded-lg flex justify-center flex-1">
                     <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
 
                         <div className="mt-12 flex flex-col items-center">
-                            <h1 className="text-2xl xl:text-3xl font-extrabold">
-                                Sign up
+                            <h1 className="text-2xl xl:text-4xl font-extrabold">
+                                Create Your Account
                             </h1>
                             <div className="w-full flex-1 mt-8">
                                 {/* email and password */}
-                                <div className="mx-auto max-w-xs">
+                                <div className="">
 
                                     <form onSubmit={handleEmailLogin}>
                                         <input
-                                            
+
                                             className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                             name="name" type="text" placeholder="Name" required />
                                         <input
-                                            
+
                                             className="w-full mt-3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                             name="email" type="email" placeholder="Email" required />
                                         <div>
 
                                             <div className="relative">
-                                                <input                                                 
+                                                <input
                                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                                                     name="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
                                             </div>
-                                            <div className="absolute -mt-10 ml-[280px] cursor-pointer">
+                                            <div className="absolute -mt-10 ml-[280px] lg:ml-[500px]  cursor-pointer">
                                                 <button onClick={() => setShowPassword(!showPassword)}>
                                                     {
                                                         showPassword ? <FaEye className="text-2xl text-[#403F3F]"></FaEye> : <FaEyeSlash className="text-2xl text-[#403F3F]"></FaEyeSlash>
@@ -116,7 +125,7 @@ const Register = () => {
                                             className="w-full mt-3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                             name="photoUrl" type="url" placeholder="Photo URl" required />
                                         <button
-                                        type="submit"
+                                            type="submit"
                                             className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                             <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" strokeWidth="2"
                                                 strokeLinecap="round" strokeLinejoin="round">
@@ -129,11 +138,11 @@ const Register = () => {
                                             </span>
                                         </button>
                                     </form>
-                                    <p className="text-sm my-1 text-gray-700 dark:text-gray-400"> Already have an account? 
-                                                <Link to='/login'
-                                                    className="text-sm font-semibold text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
-                                                    Login Now</Link>
-                                            </p>
+                                    <p className="text-sm my-1 text-gray-700 dark:text-gray-400"> Already have an account?
+                                        <Link to='/login'
+                                            className="text-sm font-semibold text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500">
+                                            Login Now</Link>
+                                    </p>
                                 </div>
 
                                 {/* social links */}
@@ -149,10 +158,10 @@ const Register = () => {
 
 
                                 {/* social media Register */}
-                                <div className="flex flex-col items-center">
+                                <div className="flex flex-col ">
                                     <button
-                                    onClick={()=>handlePopupLogin(googleLogin)}
-                                        className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                                        onClick={() => handlePopupLogin(googleLogin)}
+                                        className="w-full  font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                         <div className="bg-white p-2 rounded-full">
                                             <svg className="w-4" viewBox="0 0 533.5 544.3">
                                                 <path
@@ -175,8 +184,8 @@ const Register = () => {
                                     </button>
 
                                     <button
-                                    onClick={()=>handlePopupLogin(githubLogin)}
-                                        className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
+                                        onClick={() => handlePopupLogin(githubLogin)}
+                                        className="w-full font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
                                         <div className="bg-white p-1 rounded-full">
                                             <svg className="w-6" viewBox="0 0 32 32">
                                                 <path fillRule="evenodd"
@@ -195,10 +204,13 @@ const Register = () => {
 
 
                     {/* image */}
-                    <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
-                        <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
-                            style={{ backgroundImage: 'url(https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg)' }}>
-                        </div>
+                    <div className="relative items-center justify-center hidden w-full lg:flex lg:w-1/2">
+                        <Lottie
+                            animationData={register}
+                            options={defaultOptions}
+                            height={400}
+                            width={400}>
+                        </Lottie>
                     </div>
                 </div>
             </div>

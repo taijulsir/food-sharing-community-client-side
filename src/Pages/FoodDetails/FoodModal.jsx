@@ -9,13 +9,13 @@ import Swal from "sweetalert2";
 
 const FoodModal = ({ food }) => {
     const { user } = AuthHook()
-    const { _id, foodName,  foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, category,  donatorEmail } = food;
+    const { _id, foodName, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, category,status, donatorEmail } = food;
     console.log(_id)
-    const [foodsId,setFoodsId] = useState(_id)
+    const [foodsId, setFoodsId] = useState(_id)
     const [requestedDate, setRequestedDate] = useState("")
-    const [requesterName,setRequesterName] = useState(user?.displayName)
-    const [requesterImage,setRequesterImage] = useState(user?.photoURL)
-    const [requsterEmail,setRequesterEmail] = useState(user?.email)
+    const [requesterName, setRequesterName] = useState(user?.displayName)
+    const [requesterImage, setRequesterImage] = useState(user?.photoURL)
+    const [requsterEmail, setRequesterEmail] = useState(user?.email)
 
     // current time
     useEffect(() => {
@@ -24,34 +24,34 @@ const FoodModal = ({ food }) => {
         setRequestedDate(date)
     }, [])
 
-// Handle modal
+    // Handle modal
     const handleModal = e => {
         e.preventDefault()
         console.log(foodsId)
         const additionalNotes = e.target.additionalNotes.value;
         const donationMOney = e.target.donationMOney.value;
-        const requestedFoods = {donatorName,donatorEmail,donatorImage,requesterName,requesterImage,requsterEmail,foodName,foodsId,foodImage,pickupLocation,requestedDate,expireDate,additionalNotes,donationMOney}
+        const requestedFoods = { donatorName, donatorEmail, donatorImage, requesterName, requesterImage, requsterEmail, foodName, foodsId, foodImage, pickupLocation, requestedDate, expireDate, additionalNotes, donationMOney,status }
         console.log(requestedFoods)
-        axios.post('https://food-donation-community-server-side.vercel.app/requestFoods',requestedFoods)
-        .then(response=>{
-            console.log(response.data)
-            if(response.data.insertedId){
-                toast.success('Succesfully Added Your Request')
-            }
-        })
-        .catch(error=>{
-            console.log('Error is',error)
-        })
+        axios.post('https://food-donation-community-server-side.vercel.app/requestFoods', requestedFoods)
+            .then(response => {
+                console.log(response.data)
+                if (response.data.insertedId) {
+                    toast.success('Succesfully Added Your Request')
+                }
+            })
+            .catch(error => {
+                console.log('Error is', error)
+            })
     }
-    const handleRequest = () =>{
-        if(user?.email === donatorEmail) {
+    const handleRequest = () => {
+        if (user?.email === donatorEmail) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Your donation item you can not request!',
-              })
+            })
         }
-        else{
+        else {
             document.getElementById('my_modal_3').showModal()
         }
     }
@@ -92,7 +92,7 @@ const FoodModal = ({ food }) => {
                             <div className="flex gap-2">
                                 <div className="flex-1">
                                     <label htmlFor="" className="text-gray-600">Name</label>
-                                    <input className="w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="text" name="userName" id="" value={user?.displayName} readOnly  />
+                                    <input className="w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="text" name="userName" id="" value={user?.displayName} readOnly />
                                 </div>
                                 <div className="flex-1">
                                     <label htmlFor="" className="text-gray-600">Email</label>
@@ -103,8 +103,8 @@ const FoodModal = ({ food }) => {
 
                         {/* user image */}
                         <div className="w-1/2">
-                        <label htmlFor="" className="text-gray-600">Photo Url</label>
-                                    <input className=" w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="email" name="userEmail" id="" value={user?.photoURL} readOnly />  
+                            <label htmlFor="" className="text-gray-600">Photo Url</label>
+                            <input className=" w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="email" name="userEmail" id="" value={user?.photoURL} readOnly />
                         </div>
 
                         {/* food name and id */}
@@ -149,16 +149,24 @@ const FoodModal = ({ food }) => {
 
                         </div>
 
-
-                        {/* additional notes */}
-                        <div className="flex gap-2">
+{/* donation money and food status */}
+                        <div  className="flex gap-2">
                             <div className="flex-1">
-                                <label htmlFor="" className="text-gray-600">Additional Notes</label>
-                                <input className=" border border-zinc-950 px-2 py-1 w-full rounded-md outline-slate-600 shadow-lg bg-slate-50" type="text" name="additionalNotes" id="" required />
+                                <label htmlFor="" className="text-gray-600">Food Status</label>
+                                <input className="w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="" name="status" id="" value={status} readOnly />
                             </div>
                             <div className="flex-1">
                                 <label htmlFor="" className="text-gray-600">Donation Money</label>
                                 <input className="w-full border border-zinc-950 px-2 py-1 rounded-md outline-slate-600 shadow-lg bg-slate-50 " type="number" name="donationMOney" id="" required />
+                            </div>
+
+                        </div>
+
+                        {/* additional notes */}
+                        <div>
+                            <div className="flex-1">
+                                <label htmlFor="" className="text-gray-600">Additional Notes</label>
+                                <input className=" border border-zinc-950 px-2 py-1 w-full rounded-md outline-slate-600 shadow-lg bg-slate-50" type="text" name="additionalNotes" id="" required />
                             </div>
 
                         </div>

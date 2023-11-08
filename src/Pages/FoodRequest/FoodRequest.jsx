@@ -4,6 +4,9 @@ import AuthHook from "../../CustomHooks/AuthHook";
 import { useEffect } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
+import Lottie from "lottie-react";
+import nodata from "../../Lottie/nodata - 1699457305397.json"
 
 
 const FoodRequest = () => {
@@ -17,18 +20,69 @@ const FoodRequest = () => {
     }, [url])
 
     console.log(foods)
+    
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
+    const handleDelete = (id) => {
+        console.log(id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axios.delete(`https://food-donation-community-server-side.vercel.app/requestedFoods/${id}`)
+                    .then(res => {
+                        console.log(res)
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remainingFoods = foods.filter(food => food._id !== id)
+                            setFoods(remainingFoods)
+                          
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }
+        });
+
+    }
+
     if( foods.length===0){
-        return <div className="text-center text-blue-700 ">Please Donate Food to see your donate food list</div>
+        return <div className="max-w-5xl mx-auto "><Lottie
+        animationData={nodata}
+        options={defaultOptions}
+        height={400}
+        width={400}>
+    </Lottie></div>
     } 
-    console.log(foods.status)
+  
+    
     return (
         <div>
               <Helmet>
                 <title>My Food Request Item</title>
             </Helmet>
+            <h1 className="text-3xl text-center font-bold mt-8">All of My Food Request</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto gap-6 my-10">
                 {foods.map(food =>
-                     <section key={food._id} className="flex items-center py-10 bg-stone-100 font-poppins dark:bg-gray-800 ">
+                     <section key={food._id} className="flex items-center py-10 bg-stone-100 font-poppins rounded-lg dark:bg-gray-800 ">
                     <div className=" py-4  lg:py-6 md:px-6">
                         <div className="flex flex-wrap ">
                             <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
@@ -38,40 +92,41 @@ const FoodRequest = () => {
                                   
                                 </div>
                             </div>
-                            <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0 ">
+                            <div className="w-full px-4 mb-3 lg:w-1/2 lg:mb-0 ">
                                 <div className="relative">
                                    
                                     <h1 className="pl-2 text-3xl font-bold border-l-8 border-blue-400 md:text-5xl dark:text-white">
                                        {food.foodName}
-                                    </h1>
+                                </h1>
                                 </div>
-                                <p className="mt-6 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                <p className="mt-6 mb-3 text-base leading-7 text-gray-500 dark:text-gray-400">
                                    {food.additionalNotes}
                                 </p>
                                 <p className="text-xl font-medium text-zinc-950">Donated By:</p>
-                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                <p className="mt-2 mb-3 text-base leading-7 text-gray-500 dark:text-gray-400">
                                  Name: {food.donatorName}
                                 </p>
-                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                <p className="mt-2 mb-3 text-base leading-7 text-gray-500 dark:text-gray-400">
                                  Pickup : {food.pickupLocation}
                                 </p>
-                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                <p className="mt-2 mb-3 text-base leading-7 text-gray-500 dark:text-gray-400">
                                  Expire Date: {food.expireDate}
                                 </p>
-                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                <p className="mt-2 mb-3 text-base leading-7 text-gray-500 dark:text-gray-400">
                                  Request Date: {food.requestedDate}
                                 </p>
-                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                <p className="mt-2 mb-3 text-base leading-7 text-gray-500 dark:text-gray-400">
                                  Status: {food.status}
                                 </p>
-                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                <p className="mt-2 mb-3 text-base leading-7 text-gray-500 dark:text-gray-400">
                                  Donation Money: {food.donationMOney}
                                 </p>
 
-                                <a href="#"
+                                <button
+                                onClick={()=>handleDelete(food._id)}
                                     className="px-4 py-3 text-gray-50 transition-all transform bg-blue-400 rounded-[80px] hover:bg-blue-500 dark:hover:text-gray-100 dark:text-gray-100 ">
-                                    Pick Now
-                                </a>
+                                    Cancel
+                                </button>
                             </div>
                         </div>
                     </div>
