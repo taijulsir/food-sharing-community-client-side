@@ -24,7 +24,7 @@ const Footer = () => {
                                 <a href="#" className="inline-block mb-4 text-xl font-bold text-gray-200 dark:text-gray-400">About
                                     Company</a>
                                 <p className="text-base font-normal leading-6 text-gray-300 lg:w-64 dark:text-gray-400">
-                                    Lorem ipsum dor amet Lorem ipsum dor amet Lorem ipsum dor amet Lorem ipsum dor amet</p>
+                                We facilitate the formation of local food sharing communities, bringing together. </p>
                                 <div className="flex justify-start mt-4 ">
                                     <a href="#" type="button" className="m-1 leading-normal text-gray-300 uppercase transition duration-150 ease-in-out border-2 border-gray-300 rounded-full dark:border-gray-400 dark:hover:bg-gray-800 hover:border-blue-700 hover:bg-blue-700 w-9 h-9">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 h-full mx-auto text-gray-300 dark:text-gray-400 bi bi-facebook" viewBox="0 0 16 16">

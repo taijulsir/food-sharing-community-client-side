@@ -35,7 +35,7 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <a className=" normal-case text-xl"><img className="w-[204px] lg:w-[310px]  h-[82px] lg:h-[100px]" src="/public/logo.png" alt="" /></a>
+        <a className=" normal-case text-xl"><img className="w-[204px] lg:w-[310px]  h-[82px] lg:h-[90px]" src="https://i.ibb.co/r5cH53p/logo.png" alt="" /></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -70,13 +70,15 @@ const Navbar = () => {
           </ul>
          
         </div> :
-         <div className="flex items-center">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+         <div>
+         
+         <Link to="/login" className="flex items-center">
+           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="/public/user.svg.png" />
+              <img src="https://i.ibb.co/r5PhbJP/user-svg.png" />
             </div>
-          </label>
-         <Link to="/login"> <button >Login</button></Link>
+          </label>  
+           <button className="btn bg-teal-500" >Login</button></Link>
           </div> }
        
       </div>

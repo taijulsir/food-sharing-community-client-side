@@ -9,7 +9,7 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold">Empower Our Community with Kindness</h1>
+                                <h1 className="mb-5 text-5xl font-bold">Empower Our Community</h1>
                                 <p className="mb-5">We`re dedicated to making a difference in our community. Join us in our mission to help those in need and share the joy of giving.</p>
                                 <button className="btn btn-primary">Donate Now</button>
                             </div>
@@ -27,7 +27,7 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold">Serving with Compassion and Love</h1>
+                                <h1 className="mb-5 text-5xl font-bold">Serving with Caring and Love</h1>
                                 <p className="mb-5">We believe in serving with compassion and ensuring that no one goes hungry. Be a part of our food sharing community and make a positive impact.</p>
                                 <button className="btn btn-primary">Donate Now</button>
                             </div>

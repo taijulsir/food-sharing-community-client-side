@@ -1,16 +1,29 @@
+import axios from "axios";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const ManageFood = () => {
     const foods = useLoaderData()
-    console.log(foods)
-    const { _id, foodName, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorDesignation } = foods.foods;
+    const [newStatus, setNewStatus] = useState('')
+    const { _id, foodName, foodImage, pickupLocation, expireDate, additionalNotes, category } = foods.foods;
 
     const handleStatus = (e) => {
         e.preventDefault()
-        const form = e.target;
-       const status = form.status.value;
-       console.log(status)
+        const status = newStatus;
+        axios.patch(`http://localhost:5000/updateStatus/${_id}`,{status})
+        .then(res=>{
+            console.log(res.data)
+            if(res.data.modifiedCount>0){
+                Swal.fire({
+                    icon: 'success',  
+                    title: 'Success',  
+                    text: 'Succesfully update the status.', 
+                  });
+            }
+        })
+        .catch(error=>console.log(error))
 
     }
     return (
@@ -63,28 +76,28 @@ const ManageFood = () => {
                     <div key={request._id}
                         className="bg-[#4878a3] px-8 py-10 shadow-[0_2px_15px_-6px_rgba(0,0,0,0.2)] w-full max-w-sm rounded-2xl font-[sans-serif] overflow-hidden mx-auto mt-4">
                         <div className="flex flex-col items-center">
-                            <img src={request.requesterImage} className="w-60 h-60 rounded-full" />
+                            <img src={request.requesterImage} className="w-48 h-48 rounded-full" />
                             <div className="mt-6 text-center">
                                 <p className="text-base text-gray-400 font-bold uppercase">{request.requesterName}</p>
                                 <h3 className="text-white font-bold text-xl mt-4">{request.requsterEmail}</h3>
+                                <p className="text-base font-medium text-zinc-950">Status: "{foods.foods.status}"" </p>
+                            </div>
+                            <div>
+                                <form onClick={handleStatus}>
+                                    <div className="w-48 flex items-center">
+                                        <select name="status" onChange={(e) => setNewStatus(e.target.value)} className="w-full border  border-gray-300 rounded-md px-3 py-2 text-gray-700 focus:outline-none focus:border-blue-500">
+                                            <option value="available">available</option>
+                                            <option value="Deliverd">Delivered</option>
+                                        </select>
+                                        <button type="submit" className="px-3 py-1 ml-1 bg-white rounded-lg ">Change</button>
+                                    </div>
+
+                                </form>
                             </div>
                         </div>
                     </div>)}
             </div>
-            <div className="flex items-center justify-center mt-10">
-                <p className="text-xl font-medium text-zinc-950 mr-3">Status:</p>
-                <form onClick={handleStatus}>
-                    <div className="w-48 flex items-center">
-                       
-                        <select name="status" className="w-full border  border-gray-300 rounded-md px-3 py-2 text-gray-700 focus:outline-none focus:border-blue-500">
-                            <option value="available">available</option>
-                            <option value="Deliverd">Delivered</option>
-                        </select>
-                       <input type="submit" value="Change" />
-                    </div>
 
-                </form>
-            </div>
         </div>
     );
 };
