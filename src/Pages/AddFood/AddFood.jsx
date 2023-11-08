@@ -46,7 +46,7 @@ const AddFood = () => {
             <Helmet>
                 <title>Add Food Form</title>
             </Helmet>
-            <h1 className="text-3xl font-bold text-center ">Add Your Surplus Foods</h1>
+            <h1 className="text-3xl font-bold text-center ">Add Your Foods</h1>
 
             <form className="font-[sans-serif]" onSubmit={handleAddFoods}>
                 <div className="grid sm:grid-cols-2 gap-6">

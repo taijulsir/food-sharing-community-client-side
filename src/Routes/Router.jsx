@@ -14,6 +14,7 @@ import About from "../Pages/About/About";
 import BLogs from "../Pages/Blogs/BLogs";
 import FoodRequest from "../Pages/FoodRequest/FoodRequest";
 import ManageFood from "../Pages/ManageFoods/ManageFood";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 
@@ -34,7 +35,7 @@ const router = createBrowserRouter ([
             },
             {
                 path: '/foodDetails/:id',
-                element: <FoodDetails></FoodDetails>,
+                element: <PrivateRoute><FoodDetails></FoodDetails></PrivateRoute>,
                 loader: ({params}) => fetch(`https://food-donation-community-server-side.vercel.app/foods/${params.id}`)
             },
             {
@@ -55,20 +56,20 @@ const router = createBrowserRouter ([
             },
             {
                 path: '/addFoods',
-                element: <AddFood></AddFood>
+                element:<PrivateRoute><AddFood></AddFood></PrivateRoute> 
             },
             {
                 path: '/manageFoods',
-                element: <ManageFoods></ManageFoods>,                  
+                element:<PrivateRoute><ManageFoods></ManageFoods></PrivateRoute> ,                  
             },
             {
                 path: '/updateFoods/:id',
-                element:<FoodUpdate></FoodUpdate>,
+                element:<PrivateRoute><FoodUpdate></FoodUpdate></PrivateRoute>,
                 loader : ({params}) => fetch(`https://food-donation-community-server-side.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/foodsRequest',
-                element: <FoodRequest></FoodRequest>                
+                element: <PrivateRoute><FoodRequest></FoodRequest></PrivateRoute>                 
             },
             {
                 path: '/foods/:id',

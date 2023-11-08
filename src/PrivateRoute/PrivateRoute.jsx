@@ -4,7 +4,8 @@
 
 /* eslint-disable react/prop-types */
 import { Navigate, useLocation } from "react-router-dom";
-import AuthHook from "../CustomHook/AuthHook";
+import AuthHook from "../CustomHooks/AuthHook";
+
 
 const PrivateRoute = ({children}) => {
     const {user,loading} = AuthHook()

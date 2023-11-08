@@ -131,6 +131,11 @@ const FoodDetails = () => {
                                     </div>
                                 </div>
 
+                                {/* expire date */}
+                                <div className="mt-6 mb-6 text-gray-700 font-poppins dark:text-gray-400">
+                                    <h3 className="text-xl font-medium">⏲ Expire on: {expireDate} </h3>
+                                </div>
+
                                 {/* Donator inspiration text */}
                                 <div className="mt-6 mb-6 text-gray-700 font-poppins dark:text-gray-400">
                                     <blockquote

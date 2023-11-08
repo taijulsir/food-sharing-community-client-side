@@ -20,6 +20,7 @@ const FoodRequest = () => {
     if( foods.length===0){
         return <div className="text-center text-blue-700 ">Please Donate Food to see your donate food list</div>
     } 
+    console.log(foods.status)
     return (
         <div>
               <Helmet>
@@ -48,8 +49,23 @@ const FoodRequest = () => {
                                    {food.additionalNotes}
                                 </p>
                                 <p className="text-xl font-medium text-zinc-950">Donated By:</p>
-                                <p className="mt-6 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
-                                   {food.donatorName}
+                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                 Name: {food.donatorName}
+                                </p>
+                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                 Pickup : {food.pickupLocation}
+                                </p>
+                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                 Expire Date: {food.expireDate}
+                                </p>
+                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                 Request Date: {food.requestedDate}
+                                </p>
+                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                 Status: {food.status}
+                                </p>
+                                <p className="mt-2 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                 Donation Money: {food.donationMOney}
                                 </p>
 
                                 <a href="#"

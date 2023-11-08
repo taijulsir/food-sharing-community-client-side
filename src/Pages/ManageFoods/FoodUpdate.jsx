@@ -36,7 +36,7 @@ const FoodUpdate = () => {
             .then(res => {
                 console.log(res.data)
                 if (res.data.modifiedCount > 0) {
-                    toast.success('succesfully added')
+                    toast.success('succesfully Updated')
                 }
             })
             .catch(error => {

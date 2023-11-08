@@ -7,6 +7,7 @@ import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 
+
 const AvailableFoods = () => {
    
     const [availableFoods, setAvailableFoods] = useState([])
@@ -42,9 +43,10 @@ const AvailableFoods = () => {
 
     // filter data
     const filterCardData = availableFoods?.filter((item) => {
-        if (item && item.category && typeof item.category === 'string' && typeof searchText === 'string') {
-            return item.category.toLowerCase().includes(searchText.toLowerCase());
+        if (item && item.foodName && typeof item.foodName === 'string' && typeof searchText === 'string') {
+            return item.foodName.toLowerCase().includes(searchText.toLowerCase());
         }
+       
     });
     // search value
     const handleSearch = (e) => {

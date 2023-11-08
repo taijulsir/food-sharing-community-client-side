@@ -43,7 +43,7 @@ const FoodsCard = ({ food }) => {
                                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg>
                         </a>
-                        <span className="text-sm text-gray-600 dark:text-gray-400">{pickupLocation}</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">Address: {pickupLocation}</span>
                     </div>
                     <h2 className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
                         {additionalNotes}
