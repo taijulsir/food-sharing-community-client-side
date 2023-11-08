@@ -11,6 +11,7 @@ const FoodUpdate = () => {
     const { user } = AuthHook()
     const { _id, foodName, foodId, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorEmail, status } = food;
 
+
     // update form
     const designation = "Food Donator"
     const handleUpdate = (e) => {
@@ -37,6 +38,7 @@ const FoodUpdate = () => {
                 console.log(res.data)
                 if (res.data.modifiedCount > 0) {
                     toast.success('succesfully Updated')
+                
                 }
             })
             .catch(error => {
