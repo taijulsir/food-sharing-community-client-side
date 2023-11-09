@@ -12,11 +12,11 @@ const BLogs = () => {
         <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-[70%,1fr]  gap-6  pt-9 pb-7">
                 <div>
-                    <div className="p-4 bg-white dark:bg-gray-800">
+                    <div className="p-4  dark:bg-gray-800">
                         <nav className="flex mb-4">
                             <ol className="inline-flex items-center">
                                 <li className="inline-flex items-center">
-                                    <a href="#"
+                                    <a 
                                         className="inline-flex items-center text-lg text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                                         Home
                                     </a>
@@ -29,7 +29,7 @@ const BLogs = () => {
                                                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                 clipRule="evenodd"></path>
                                         </svg>
-                                        <a href="#"
+                                        <a 
                                             className="text-lg font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Blog</a>
                                     </div>
                                 </li>
@@ -41,7 +41,7 @@ const BLogs = () => {
                                                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                 clipRule="evenodd"></path>
                                         </svg>
-                                        <a href="#"
+                                        <a 
                                             className="text-lg font-medium text-blue-500 border-b border-blue-500 hover:border-blue-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-white">
                                             Single Blog
                                         </a>
@@ -58,7 +58,7 @@ const BLogs = () => {
                         <div className="pt-5 pb-5 font-poppins dark:text-gray-400">
                             <p>Every day, countless people around the world go to bed hungry, while a staggering amount of food goes to waste. Its a heartbreaking paradox that we can change.</p>
                             <blockquote
-                                className="p-6 my-4 italic bg-gray-100 border-l-4 border-blue-500 dark:border-blue-400 dark:bg-gray-800 dark:text-gray-400">
+                                className="p-6 my-4 italic  border-l-4 border-blue-500 dark:border-blue-400 dark:bg-gray-800 dark:text-gray-400">
                                 Your simple act of sharing food can fill an empty stomach and put a smile on someones face. Its a direct way to make a positive impact on someones life.</blockquote>
                             <p>Remember, every meal shared is a step towards a world where no one goes to bed hungry. Together, we can make a difference and create a more compassionate, food-secure future.</p><br/>
                         </div>
@@ -68,20 +68,20 @@ const BLogs = () => {
                         </h2>
                         <div className="w-16 mb-3 border-b-2 border-blue-500 dark:border-gray-400 inset-px"></div>
                         <div className="flex flex-wrap gap-2 my-4 font-poppins ">
-                            <a className="px-4 py-1 mb-2 text-xs text-black transition bg-gray-300 rounded btn btn-sm hover:bg-blue-500 dark:text-gray-100 dark:bg-gray-600 dark:hover:bg-gray-900 hover:text-white"
-                                href="#">
+                            <a className="px-4 py-1 mb-2 text-xs text-black transition bg-teal-600 rounded btn btn-sm hover:bg-blue-500 dark:text-gray-100 dark:bg-gray-600 dark:hover:bg-gray-900 hover:text-white"
+                                >
                                 Corporate</a>
-                            <a className="px-4 py-1 mb-2 text-xs text-black transition bg-gray-300 rounded btn btn-sm hover:bg-blue-500 hover:text-white dark:text-gray-100 dark:bg-gray-600 dark:hover:bg-gray-900"
-                                href="#">
+                            <a className="px-4 py-1 mb-2 text-xs text-black transition bg-teal-600 rounded btn btn-sm hover:bg-blue-500 hover:text-white dark:text-gray-100 dark:bg-gray-600 dark:hover:bg-gray-900"
+                                >
                                 Business</a>
-                            <a className="px-4 py-1 mb-2 text-xs text-black transition bg-gray-300 rounded btn btn-sm hover:bg-blue-500 hover:text-white dark:text-gray-100 dark:bg-gray-600 dark:hover:bg-gray-900"
-                                href="#">
+                            <a className="px-4 py-1 mb-2 text-xs text-black transition bg-teal-600 rounded btn btn-sm hover:bg-blue-500 hover:text-white dark:text-gray-100 dark:bg-gray-600 dark:hover:bg-gray-900"
+                                >
                                 Field</a>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div className="p-4 mb-4 bg-white dark:bg-gray-800">
+                    <div className="p-4 mb-4  dark:bg-gray-800">
                         <div>
                             <h2
                                 className="text-xl font-semibold leading-5 tracking-tight text-gray-900 dark:text-gray-300 lg:text-lg">
@@ -139,12 +139,12 @@ const BLogs = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="p-6 mb-4 bg-white border rounded shadow dark:bg-gray-900 dark:border-gray-900">
+                    <div className="p-6 mb-4  border rounded shadow dark:bg-gray-900 dark:border-gray-900">
                         <h2
                             className="py-2 my-2 text-xl font-semibold leading-5 tracking-tight text-gray-900 font-montserrat lg:text-3xl dark:text-gray-400 lg:mt-3 ">
                             Join Our Newsletter</h2>
-                        <input type="email " name="email " id="email " autoComplete="email " required=""
-                            className="w-full px-2 py-2 border border-gray-300 rounded dark:bg-gray-700 dark:text-gray-400 dark:border-gray-800 focus:outline-none focus:border-indigo-500 focus-ring-1 focus:ring-indigo-500 "/>
+                        <input type="email " name="email " id="email " placeholder="enter your email" autoComplete="email " required=""
+                            className="w-full px-2 py-2 border border-gray-300  rounded dark:bg-gray-700 dark:text-gray-400 dark:border-gray-800 focus:outline-none focus:border-indigo-500 focus-ring-1 focus:ring-indigo-500 "/>
                         <button
                             className="flex justify-center w-full px-4 py-3 mt-4 text-sm font-semibold text-white uppercase bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ">
                             Subscribe
@@ -156,14 +156,14 @@ const BLogs = () => {
                         </p>
                     </div>
                     <div>
-                        <div className="p-4 bg-white dark:bg-gray-800">
+                        <div className="p-4  dark:bg-gray-800">
                             <h2
                                 className="py-2 text-xl font-semibold leading-5 tracking-tight text-gray-900 dark:text-gray-400 font-montserrat lg:text-lg ">
                                 Follow Us</h2>
                             <div className="w-24 mb-4 border-b-2 border-blue-400 inset-px "></div>
                             <ul className="flex flex-wrap ">
                                 <li className="w-1/2 h-32 p-1 social-box">
-                                    <a href="#"
+                                    <a 
                                         className="flex flex-col items-center justify-center w-full h-full text-white transition-transform duration-200 ease-in transform bg-blue-800 bg-silver-darker rd-br-full rd-tl-full hover:scale-105">
                                         <svg enableBackground="new 0 0 56.693 56.693" height="56.693px" id="Layer_1"
                                             version="1.1" viewBox="0 0 56.693 56.693" className="w-6 h-6 fill-gray-100"

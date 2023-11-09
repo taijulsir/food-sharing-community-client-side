@@ -53,31 +53,15 @@ const Navbar = () => {
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button>
-        {user ?
-          //  <div className="dropdown dropdown-end">
-          //   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          //     <div className="w-10 rounded-full">
-          //       <img src={user?.photoURL} />
-          //     </div>
-          //   </label>
-          //   <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-          //     <li className="text-lg font-bold mr-2"><NavLink to='/addFoods' className={({ isActive, isPending }) =>
-          //       isPending ? "pending" : isActive ? "active" : ""}>Add Foods</NavLink></li>
-          //     <li className="text-lg font-bold mr-2"><NavLink to='/manageFoods' className={({ isActive, isPending }) =>
-          //       isPending ? "pending" : isActive ? "active" : ""}>Manage My Foods</NavLink></li>
-          //     <li className="text-lg font-bold mr-2"><NavLink to='/foodsRequest' className={({ isActive, isPending }) =>
-          //       isPending ? "pending" : isActive ? "active" : ""}>My Food Request</NavLink></li>
-          //        <button className="btn" onClick={handleSignout}>Sign Out</button>
-          //   </ul>
 
-          // </div>
+        {user ?       
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img src={user?.photoURL} />
               </div>
             </label>
-            <div tabIndex={0} className="w-52 bg-white p-3 shadow-lg menu menu-sm dropdown-content mt-3 z-[1] rounded-box  ">
+            <div tabIndex={0} className="w-52 bg-teal-200/60 p-3 shadow-lg menu menu-sm dropdown-content mt-3 z-[1] rounded-box  ">
               <div className="flex items-center space-x-4 p-2 mb-5">
                 <img className="h-12 rounded-full" src={user?.photoURL} alt="James Bhatta" />
                 <div>

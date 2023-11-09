@@ -119,7 +119,7 @@ const ManageFoods = () => {
             <Helmet>
                 <title>Manage Your Foods</title>
             </Helmet>
-            <h3 className=" font-bold mb-10 text-2xl mt-10 container mx-auto text-center underline text-teal-600">At a Glance See Your Sharing Foods</h3>
+            <h3 className=" font-bold mb-10 text-2xl mt-10 container mx-auto text-center underline  font-mono">At a Glance See Your Sharing Foods</h3>
             <FoodsTable columns={columns} data={data} onDelete={handleDelete}></FoodsTable>
         </div>
     );

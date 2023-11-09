@@ -16,7 +16,7 @@ const AvailableCards = ({ food }) => {
                     </div>
 
                     {/* foodname */}
-                    <div className="p-4 bg-teal-200 shadow-xl dark:bg-gray-700">
+                    <div className="p-4 bg-teal-200/40 shadow-xl dark:bg-gray-700">
                         <div className="flex items-center justify-between mb-1">
                             <div>
                                 <a href="">

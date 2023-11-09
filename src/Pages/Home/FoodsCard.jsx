@@ -11,7 +11,7 @@ const FoodsCard = ({ food }) => {
                     {category && <span className="absolute top-0 left-0 px-3 py-1 rounded-md text-xl mt-2 ml-2 text-white bg-blue-700">
                         {category}</span>}
                 </div>
-                <div className="p-4 bg-teal-200 shadow-xl dark:bg-gray-700">
+                <div className="p-4 bg-teal-200/40 shadow-xl dark:bg-gray-700">
                     <div className="flex items-center justify-between mb-1">
                         <div>
                             <a href="">

@@ -25,7 +25,7 @@ const AvailableBanners = () => {
                             <p className="mb-8 text-base leading-8 text-gray-400 lg:text-xl">
                                 Join our food sharing community and make a difference in your neighborhood. Share surplus meals, reduce food waste, and spread the warmth of kindness one plate at a time.</p>
                             <a className="block px-5 py-3 text-sm font-semibold text-center text-indigo-500 transition duration-200 bg-white border border-white rounded md:inline-block hover:bg-indigo-50 hover:border-indigo-50"
-                                href="#"> Explore Foods </a>
+                               > Explore Foods </a>
                         </div>
                     </div>
                 </div>
