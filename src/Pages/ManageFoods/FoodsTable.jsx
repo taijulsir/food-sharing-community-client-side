@@ -27,9 +27,9 @@ const FoodsTable = ({ columns, data, onDelete }) => {
 
     return (
 
-        <div className=" container mx-auto mt-10">
+        <div>
 
-            <table {...getTableProps()}>
+            <table {...getTableProps()} className=" container mx-auto mt-10">
 
                 <thead>
                     {headerGroups.map((headerGroup, index) => (
@@ -49,9 +49,9 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                     {rows.map((row) => {
                         prepareRow(row);
                         return (
-                            <tr {...row.getRowProps()} className="border-b">
+                            <tr {...row.getRowProps()} className="border-b border-r border-l">
                                 {row.cells.map((cell, index) => (
-                                    <td key={index} {...cell.getCellProps()} className="px-4 py-2">
+                                    <td key={index} {...cell.getCellProps()} className="px-4 py-2 border-r text-lg text-center align-middle">
                                         {cell.render('Cell')}
                                     </td>
                                 ))}
@@ -59,7 +59,7 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                                 <td>
                                     <button
                                         onClick={() => deleteBtn(row)}
-                                        className=" btn px-2 py-1 bg-red-500 text-white mr-2"
+                                        className=" btn px-2 py-1 bg-red-500 text-white mr-2 "
                                     >
                                         Delete
                                     </button>
@@ -68,13 +68,13 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                                 <td>                                  
                                         {/* <UpdateFoodsModal food={row.original}></UpdateFoodsModal> */}
                                         <Link to={`/updateFoods/${row.original._id}`}><button
-                                         className=" btn px-2 py-1 bg-teal-500 text-white"
+                                         className=" btn px-2 py-1 bg-teal-500 text-white "
                                         >Update</button></Link>
                                 </td>
                                 <td>
                                    <Link to={`/foods/${row.original._id}`}> <button
                                         onClick={() => handleManage(row)}
-                                        className=" btn px-2 py-1 bg-blue-500 text-white"
+                                        className=" btn px-2 py-1 bg-blue-500 text-white "
                                     >
                                         Manage
                                     </button></Link>

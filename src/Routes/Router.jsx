@@ -76,9 +76,6 @@ const router = createBrowserRouter ([
                 element: <ManageFood></ManageFood>,
                 loader: ({params}) => fetch(`https://food-donation-community-server-side.vercel.app/requestedFoods/${params.id}`)
             }
-            
-            
-
         ]
     }
 ])

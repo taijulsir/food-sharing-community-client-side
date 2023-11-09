@@ -106,25 +106,25 @@ const ManageFoods = () => {
 
     const data = useMemo(() => myFoods, [myFoods])
 
-    if( myFoods.length===0){
+    if (myFoods.length === 0) {
         return <div className="max-w-5xl mx-auto "><Lottie
-        animationData={nodata}
-        options={defaultOptions}
-        height={400}
-        width={400}>
-    </Lottie></div>
-    }  
-        return (
+            animationData={nodata}
+            options={defaultOptions}
+            height={400}
+            width={400}>
+        </Lottie></div>
+    }
+    return (
         <div className=" ">
-              <Helmet>
+            <Helmet>
                 <title>Manage Your Foods</title>
             </Helmet>
-            <h3 className=" font-bold mb-10 text-2xl mt-10 container mx-auto underline text-teal-600">At a Glance See Your Sharing Foods</h3>
+            <h3 className=" font-bold mb-10 text-2xl mt-10 container mx-auto text-center underline text-teal-600">At a Glance See Your Sharing Foods</h3>
             <FoodsTable columns={columns} data={data} onDelete={handleDelete}></FoodsTable>
         </div>
-    ); 
- 
-   
+    );
+
+
 };
 
 export default ManageFoods;
