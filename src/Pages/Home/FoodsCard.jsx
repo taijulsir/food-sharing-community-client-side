@@ -14,19 +14,19 @@ const FoodsCard = ({ food }) => {
                 <div className="p-4 bg-teal-200/40 shadow-xl dark:bg-gray-700">
                     <div className="flex items-center justify-between mb-1">
                         <div>
-                            <a href="">
+                            <a >
                                 <h2 className="text-xl font-semibold dark:text-gray-300">{foodName}</h2>
                             </a>
                         </div>
                         <div className="flex">
-                            <button href="" className="mr-3 text-lg font-medium text-blue-600 dark:text-gray-300">
+                            <button  className="mr-3 text-lg font-medium text-blue-600 dark:text-gray-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor"
                                     className="bi bi-share" viewBox="0 0 16 16">
                                     <path
                                         d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
                                 </svg>
                             </button>
-                            <button className="text-lg font-medium text-red-600 dark:text-gray-300" href=""><svg
+                            <button className="text-lg font-medium text-red-600 dark:text-gray-300" ><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 className="bi bi-heart" viewBox="0 0 16 16">
                                 <path
@@ -35,7 +35,7 @@ const FoodsCard = ({ food }) => {
                         </div>
                     </div>
                     <div className="flex items-center mb-4">
-                        <a href="" className="mr-1 text-blue-600 dark:text-gray-300">
+                        <a  className="mr-1 text-blue-600 dark:text-gray-300">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
                                 className="bi bi-geo-alt" viewBox="0 0 16 16">
                                 <path

@@ -3,20 +3,21 @@ import Banner from "./Banner";
 import Feature from "./Feature";
 import Featured from "./Featured";
 import Team from "./Team";
-import Testimonial from "./Testimonial";
+import HappyDonator from "./HappyDonator";
 
-  
+
 const Home = () => {
     return (
         <div>
             <Helmet>
                 <title>Community Foods Sharing Association</title>
             </Helmet>
-           <Banner></Banner>
-           <Featured></Featured>
-           <Team></Team>
-           <Feature></Feature>
-           <Testimonial></Testimonial>
+            <Banner></Banner>
+            <Featured></Featured>
+            <Team></Team>
+            <HappyDonator></HappyDonator>
+            <Feature></Feature>
+
         </div>
     );
 };
