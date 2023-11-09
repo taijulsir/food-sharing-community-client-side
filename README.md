@@ -7,7 +7,7 @@
 - Home  
 1) This route, when clicked, takes the user to the home page of the website. It's the landing page that typically displays essential information, featured content.
 
--Available Foods
+- Available Foods
 1) Clicking on this route leads the user to a page where all available food items are listed. Users can browse and search for food items in this section.
 
 - Add Food
@@ -18,7 +18,7 @@
 
 - My Food Request
 1) Similar to the "Manage My Foods" route, this is a private section for logged-in users. It displays all food requests made by the user. Users can track the status of their requests and potentially cancel them if the food is still available.
-2) 
+
 - Login/Signup
 1) This route provides access to the user authentication system. Users can log in using their email and password, or they can choose to log in through external platforms like Google or GitHub. It also offers the option to switch between the login and registration forms, allowing new users to create an account.
 
