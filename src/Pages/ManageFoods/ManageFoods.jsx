@@ -82,7 +82,7 @@ const ManageFoods = () => {
             {
                 Header: 'Food Image',
                 accessor: 'foodImage',
-                Cell: ({ value }) => <img src={value} alt="Food" className="w-[200px] h-[100px] rounded-lg" />,
+                Cell: ({ value }) => <div className="flex flex-col items-center justify-center "><img src={value} alt="Food" className="w-[200px] h-[100px] rounded-lg" /></div>,
             },
             {
                 Header: 'Donator Name',

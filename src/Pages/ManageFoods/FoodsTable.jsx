@@ -51,15 +51,15 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                         return (
                             <tr {...row.getRowProps()} className="border-b border-r border-l">
                                 {row.cells.map((cell, index) => (
-                                    <td key={index} {...cell.getCellProps()} className="px-4 py-2 border-r text-lg text-center align-middle">
+                                    <td key={index} {...cell.getCellProps()} className="px-4 py-2 border-r text-xl font-medium text-zinc-950 text-center align-middle">
                                         {cell.render('Cell')}
                                     </td>
                                 ))}
-                                
-                                <td>
+                             
+                                <td className="pl-3">
                                     <button
                                         onClick={() => deleteBtn(row)}
-                                        className=" btn px-2 py-1 bg-red-500 text-white mr-2 "
+                                        className=" btn px-2 py-1 bg-red-500 text-white mr-2  "
                                     >
                                         Delete
                                     </button>
@@ -79,6 +79,7 @@ const FoodsTable = ({ columns, data, onDelete }) => {
                                         Manage
                                     </button></Link>
                                 </td>
+                              
                             </tr>
                         );
                     })}

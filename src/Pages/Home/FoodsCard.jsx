@@ -4,7 +4,7 @@ const FoodsCard = ({ food }) => {
     const { _id, foodName, foodImage, donatorName, donatorImage, foodQuantity, pickupLocation, expireDate, additionalNotes, category, donatorDesignation } = food;
     return (
         <div>
-            <div>
+            <div className=" overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-105">
                 <div className="relative w-full h-56">
                     <img src={foodImage} alt=""
                         className="object-cover w-full h-full rounded-lg " />

@@ -11,7 +11,7 @@ const Banner = () => {
                             <div className="max-w-md">
                                 <h1 className="mb-5 text-5xl font-bold">Empower Our Community</h1>
                                 <p className="mb-5">We`re dedicated to making a difference in our community. Join us in our mission to help those in need and share the joy of giving.</p>
-                                <button className="btn btn-primary">Donate Now</button>
+                                <button className="btn btn-primary">Explore Now</button>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@ const Banner = () => {
                             <div className="max-w-md">
                                 <h1 className="mb-5 text-5xl font-bold">Serving with Caring and Love</h1>
                                 <p className="mb-5">We believe in serving with compassion and ensuring that no one goes hungry. Be a part of our food sharing community and make a positive impact.</p>
-                                <button className="btn btn-primary">Donate Now</button>
+                                <button className="btn btn-primary">Explore Now</button>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ const Banner = () => {
                             <div className="max-w-md">
                                 <h1 className="mb-5 text-5xl font-bold">Share the Blessing Of Food</h1>
                                 <p className="mb-5">Every act of kindness matters. Donate food, share your resources, and show you care. Together, we can create a world without hunger.</p>
-                                <button className="btn btn-primary">Donate Now</button>
+                                <button className="btn btn-primary">Explore Now</button>
                             </div>
                         </div>
                     </div>

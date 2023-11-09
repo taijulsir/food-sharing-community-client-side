@@ -31,7 +31,8 @@ const ManageFood = () => {
         <div>
             {/* foods image */}
             <section className="flex py-10 flex-col lg:flex-row  font-poppins container mx-auto dark:bg-gray-800 ">
-                <div className="justify-center flex-1 container py-4 mx-auto lg:py-6 md:px-6">
+                <div className="justify-center flex-1  py-4  lg:py-6 md:px-6">
+                   
                     <div className="flex flex-wrap ">
                         <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
                             <div className="relative">
@@ -71,9 +72,9 @@ const ManageFood = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                             {foods.requests.map(request =>
                                 <div key={request._id}
-                                    className="bg-[#4878a3] px-8 py-10 shadow-[0_2px_15px_-6px_rgba(0,0,0,0.2)] w-full max-w-sm rounded-2xl font-[sans-serif] overflow-hidden mx-auto mt-4">
+                                    className="bg-[#14382f] px-8 py-10 shadow-[0_2px_15px_-6px_rgba(0,0,0,0.2)] w-full max-w-sm rounded-2xl font-[sans-serif] overflow-hidden mx-auto mt-4">
                                     <div className="flex flex-col items-center">
-                                        <img src={request.requesterImage} className="w-48 h-48 rounded-full" />
+                                        <img src={request.requesterImage} className="w-40 h-40 rounded-full" />
                                         <div className="mt-6 text-center">
                                             <p className="text-base text-gray-400 font-bold uppercase">{request.requesterName}</p>
                                             <h3 className="text-white font-bold text-xl mt-4">{request.requsterEmail}</h3>
