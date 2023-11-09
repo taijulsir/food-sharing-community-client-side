@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -29,8 +30,12 @@ const ManageFood = () => {
     }
     return (
         <div>
-            {/* foods image */}
+            <Helmet>
+                <title>Request user of {foods.foods.foodName}</title>
+            </Helmet>
+           
             <section className="flex py-10 flex-col lg:flex-row  font-poppins container mx-auto dark:bg-gray-800 ">
+                 {/* foods image */}
                 <div className="justify-center flex-1  py-4  lg:py-6 md:px-6">
                    
                     <div className="flex flex-wrap ">
@@ -52,13 +57,13 @@ const ManageFood = () => {
                                     {foodName}
                                 </h1>
                             </div>
-                            <p className="mt-6 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
-                                Notes: {additionalNotes}
+                            <p className="mt-3  mb-3 text-xl leading-7 text-zinc-950 dark:text-gray-400">
+                                {additionalNotes}
                             </p>
-                            <p className="mt-6 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                            <p className="mt-5  mb-3 text-base leading-7 text-zinc-950 dark:text-gray-400">
                                 Pick Location: {pickupLocation}
                             </p>
-                            <p className="mt-6 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                            <p className="mt-3  mb-3 text-base leading-7 text-zinc-950 dark:text-gray-400">
                                 Expire Date: {expireDate}
                             </p>
 
@@ -67,18 +72,19 @@ const ManageFood = () => {
                 </div>
                 <div>
                     {/* requester information */}
-                    <div>
+                    <div className="flex-1">
                         <h3 className="text-3xl font-bold text-center">Who are Request ❓</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                             {foods.requests.map(request =>
                                 <div key={request._id}
                                     className="bg-[#14382f] px-8 py-10 shadow-[0_2px_15px_-6px_rgba(0,0,0,0.2)] w-full max-w-sm rounded-2xl font-[sans-serif] overflow-hidden mx-auto mt-4">
                                     <div className="flex flex-col items-center">
-                                        <img src={request.requesterImage} className="w-40 h-40 rounded-full" />
+                                        <img src={request.requesterImage} className="w-32 h-32 rounded-full" />
                                         <div className="mt-6 text-center">
                                             <p className="text-base text-gray-400 font-bold uppercase">{request.requesterName}</p>
-                                            <h3 className="text-white font-bold text-xl mt-4">{request.requsterEmail}</h3>
-                                            <p className="text-base font-medium text-zinc-950">Status: "{foods.foods.status}" </p>
+                                            <h3 className=" font-bold text-lg pt-2 text-zinc-950">{request.requsterEmail}</h3>
+                                            <p className="text-base font-medium  py-2 text-white ">On: {request.requestedDate} </p>
+                                            <p className="text-base font-medium  py-2 text-white ">Status: "{foods.foods.status}" </p>
                                         </div>
                                         <div>
                                             <form onSubmit={handleStatus}>

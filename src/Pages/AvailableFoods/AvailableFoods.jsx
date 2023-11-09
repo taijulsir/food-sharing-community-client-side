@@ -258,7 +258,7 @@ const handleSorting = (selectedoption) => {
                             <div className="flex justify-end mt-6">
                                 <button onClick={handlePrevious} className="btn mr-2 bg-teal-900 text-white hover:text-black ">Prev</button>
                                 {pages.map(page => <button
-                                    className={currentPage === page && 'bg-teal-600 btn' || 'btn mr-2' } 
+                                    className={currentPage === page && 'bg-teal-600 btn mr-2' || 'btn mr-2' } 
                                     onClick={() => setCurrentPage(page)}
                                     key={page}>{page}</button>)}
                                 <button onClick={handleNext} className="btn mr-2 bg-teal-900 text-white hover:text-black">Next</button>
