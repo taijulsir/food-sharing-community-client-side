@@ -7,7 +7,7 @@ const FoodsCard = ({ food }) => {
             <div className=" overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-105">
                 <div className="relative w-full h-56">
                     <img src={foodImage} alt=""
-                        className="object-cover w-full h-full rounded-lg " />
+                        className="object-cover w-full h-full rounded-lg overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-105 " />
                     {category && <span className="absolute top-0 left-0 px-3 py-1 rounded-md text-xl mt-2 ml-2 text-white bg-blue-700">
                         {category}</span>}
                 </div>
