@@ -191,17 +191,17 @@ const handleSorting = (selectedoption) => {
                             <div className="px-3 mb-4">
                                 <div className="items-center justify-between hidden px-3 py-2 -100 md:flex dark:-900 ">
                                     <div className="flex">
-                                        <a href="" className="inline-block h-full p-2 mr-3 border rounded-md -50 dark:text-gray-400 dark:-700 dark:border-gray-700">
+                                        <a  className="inline-block h-full p-2 mr-3 border rounded-md -50 dark:text-gray-400 dark:-700 dark:border-gray-700">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-5 h-5 bi bi-list" viewBox="0 0 16 16">
                                                 <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
                                             </svg>
                                         </a>
-                                        <a href="" className="inline-block h-full p-2 mr-3 border rounded-md -50 dark:text-gray-400 dark:-700 dark:border-gray-700">
+                                        <a  className="inline-block h-full p-2 mr-3 border rounded-md -50 dark:text-gray-400 dark:-700 dark:border-gray-700">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-5 h-5 bi bi-grid-fill" viewBox="0 0 16 16">
                                                 <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"></path>
                                             </svg>
                                         </a>
-                                        <a href="" className="inline-block h-full p-2 mr-3 border rounded-md -50 dark:text-gray-400 dark:-700 dark:border-gray-700">
+                                        <a  className="inline-block h-full p-2 mr-3 border rounded-md -50 dark:text-gray-400 dark:-700 dark:border-gray-700">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-5 h-5 bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
                                                 <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z"></path>
                                             </svg>
@@ -214,7 +214,7 @@ const handleSorting = (selectedoption) => {
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                             </svg>
-                                            <input name="food" className="-gray-100 outline-none bg-teal-900/60" type="text"  placeholder="Food name or keyword..." />
+                                            <input name="food" className="-gray-100 outline-none bg-teal-900/60 text-white font-bold" type="text"  placeholder="Food name or keyword..." />
                                             <div>
                                                 <input className="btn bg-teal-900/60" type="submit" value="Search" />
                                             </div>

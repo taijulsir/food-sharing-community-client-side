@@ -12,7 +12,7 @@ const Feature = () => {
                 </p>
             </div>
             <div className="grid grid-cols-1 gap-4 lg:gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <div className="w-full p-8 transition-all bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                <div className="w-full p-8  overflow-hidden transform transition-transform duration-1000 hover:scale-105 bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
                     <div className="inline-block p-4 mb-6 bg-teal-400 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                             className="text-white" viewBox="0 0 16 16">
@@ -25,7 +25,7 @@ const Feature = () => {
                     We provide a platform where individuals and organizations can share their surplus food with those who need it most. Our hub connects generous food donors with grateful recipients, ensuring that no meal goes to waste.
                     </p>
                 </div>
-                <div className="w-full p-8 transition-all bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                <div className="w-full p-8  overflow-hidden transform transition-transform duration-1000 hover:scale-105 bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
                     <div className="inline-block p-4 mb-6 bg-teal-400 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                             className="text-white" viewBox="0 0 16 16">
@@ -38,7 +38,7 @@ const Feature = () => {
                     We are committed to sustainability. We encourage our members to embrace eco-friendly food sharing practices, reducing their environmental footprint while making a difference in their communities.
                     </p>
                 </div>
-                <div className="w-full p-8 transition-all bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                <div className="w-full p-8  overflow-hidden transform transition-transform duration-1000 hover:scale-105 bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
                     <div className="inline-block p-4 mb-6 bg-teal-400 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                             className="text-white" viewBox="0 0 16 16">
@@ -53,7 +53,7 @@ const Feature = () => {
                     Our community isn't just about food; it's about connections. We facilitate meaningful relationships among our members, fostering a sense of togetherness and shared purpose.
                     </p>
                 </div>
-                <div className="w-full p-8 transition-all bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                <div className="w-full p-8  overflow-hidden transform transition-transform duration-1000 hover:scale-105 bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
                     <div className="inline-block p-4 mb-6 bg-teal-400 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                             className="text-white" viewBox="0 0 16 16">
@@ -66,7 +66,7 @@ const Feature = () => {
                     Through our initiatives, we aim to foster compassion and empathy. By sharing food, we share kindness, and we believe in the power of small acts of goodness to create a better world.
                     </p>
                 </div>
-                <div className="w-full p-8 transition-all bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                <div className="w-full p-8  overflow-hidden transform transition-transform duration-1000 hover:scale-105 bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
                     <div className="inline-block p-4 mb-6 bg-teal-400 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                             className="text-white" viewBox="0 0 16 16">
@@ -80,7 +80,7 @@ const Feature = () => {
                     Food waste is a global issue. We are dedicated to tackling it head-on, one plate at a time. By sharing food items that might otherwise go to waste, we make a substantial contribution to reducing this problem.
                     </p>
                 </div>
-                <div className="w-full p-8 transition-all bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                <div className="w-full p-8  overflow-hidden transform transition-transform duration-1000 hover:scale-105 bg-teal-900/60 rounded shadow dark:bg-gray-700 hover:shadow-lg">
                     <div className="inline-block p-4 mb-6 bg-teal-400 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                             className="text-white" viewBox="0 0 16 16">

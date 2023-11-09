@@ -11,7 +11,7 @@ const Team = () => {
 
 
 
-            <div className="grid grid-cols-3 items-center bg-teal-900/70 p-4 rounded-md relative">
+            <div className="grid grid-cols-3 items-center bg-teal-900/70 p-4 rounded-md relative overflow-hidden animate-pulse hover:animate-none transform scale-100 hover:scale-110 duration-500">
               <div className="col-span-2">
                 <img src="https://readymadeui.com/team-2.webp" className="rounded-md bg-teal-600" />
                 <div className="flex items-center justify-center mt-3 ">
@@ -47,7 +47,7 @@ const Team = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 items-center bg-teal-900/70 p-4 rounded-md relative">
+            <div className="grid grid-cols-3 items-center bg-teal-900/70 p-4 rounded-md relative overflow-hidden animate-pulse hover:animate-none transform scale-100 hover:scale-110 duration-500">
               <div className="col-span-2">
                 <img src="https://readymadeui.com/team-3.webp" className="rounded-md bg-teal-600" />
                 <div className="flex items-center justify-center mt-3 ">
@@ -83,7 +83,7 @@ const Team = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 items-center bg-teal-900/70 p-4 rounded-md relative">
+            <div className="grid grid-cols-3 items-center bg-teal-900/70 p-4 rounded-md relative overflow-hidden animate-pulse hover:animate-none transform scale-100 hover:scale-110 duration-500">
               <div className="col-span-2">
                 <img src="https://readymadeui.com/team-2.webp" className="rounded-md bg-teal-600" />
                 <div className="flex items-center justify-center mt-3 ">
@@ -119,7 +119,7 @@ const Team = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 items-center bg-teal-900/70 p-4 rounded-md relative">
+            <div className="grid grid-cols-3 items-center bg-teal-900/70 p-4 rounded-md relative overflow-hidden animate-pulse hover:animate-none transform scale-100 hover:scale-110 duration-500">
               <div className="col-span-2">
                 <img src="https://readymadeui.com/team-1.webp" className="rounded-md bg-teal-600" />
                 <div className="flex items-center justify-center mt-3 ">
