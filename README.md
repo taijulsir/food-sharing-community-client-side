@@ -2,6 +2,29 @@
 # Website Live Link : 
 - [Live link](https://food-donation-community.web.app)
 
+## Technologies Used
+
+- **Frontend:**
+  - HTML
+  - CSS
+  - [Tailwind CSS](https://tailwindcss.com/)
+  - React
+    - [React Router DOM](https://reactrouter.com/)
+    - [React Helmet](https://github.com/nfl/react-helmet)
+  - [Tanstack Query](https://react-query.tanstack.com/)
+
+- **Backend:**
+  - MongoDB
+  - Express.js
+  - Node.js
+
+- **Authentication and Authorization:**
+  - Firebase Authentication
+  - jwt
+  
+- **Build Tools:**
+  - [Vite](https://vitejs.dev/)
+    
 # Project All Route Features
 
 - Home  
